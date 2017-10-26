@@ -421,6 +421,30 @@
 			"organization": "THW",
 			"symbols": [
 				{
+					"name": "Leitung",
+					"template": "Gebäude.svg",
+					"unit": "Ltg",
+					"variants": { "gebäude": "Leitung" }
+				},
+				{
+					"name": "Bundesschule",
+					"template": "Gebäude.svg",
+					"unit": "BuS",
+					"variants": { "gebäude": "Bundesschule" }
+				},
+				{
+					"name": "Landesverband",
+					"template": "Gebäude.svg",
+					"unit": "LV",
+					"variants": { "gebäude": "Landesverband" }
+				},
+				{
+					"name": "Geschäftsstelle",
+					"template": "Gebäude.svg",
+					"unit": "GSt",
+					"variants": { "gebäude": "Geschäftsstelle" }
+				},
+				{
 					"name": "Unterkunft OV",
 					"template": "Gebäude.svg",
 					"unit": "OV",
