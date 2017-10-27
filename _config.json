@@ -2,8 +2,7 @@
 	"fonts": [
 	],
 	"sets": [
-		{
-			"name": "Rettungswesen Personen",
+		{	"name": "Rettungswesen Personen",
 			"color_primary": "#FFFFFF",
 			"color_secondary": "#000000",
 			"stroke_color": "#000000",
@@ -112,8 +111,7 @@
 				}
 			]
 		},
-		{
-			"name": "Rettungswesen Einheiten",
+		{ 	"name": "Rettungswesen Einheiten",
 			"color_primary": "#FFFFFF",
 			"color_secondary": "#000000",
 			"stroke_color": "#000000",
@@ -213,8 +211,7 @@
 				}
 			]
 		},
-		{
-			"name": "Rettungswesen Einrichtungen",
+		{	"name": "Rettungswesen Einrichtungen",
 			"color_primary": "#FFFFFF",
 			"color_secondary": "#000000",
 			"stroke_color": "#000000",
@@ -232,8 +229,7 @@
 				}
 			]
 		},
-		{
-			"name": "Rettungswesen Fahrzeuge",
+		{	"name": "Rettungswesen Fahrzeuge",
 			"color_primary": "#FFFFFF",
 			"color_secondary": "#000000",
 			"stroke_color": "#000000",
@@ -279,8 +275,7 @@
 				}
 			]
 		},
-		{
-			"name": "Feuerwehr Fahrzeuge",
+		{	"name": "Feuerwehr Fahrzeuge",
 			"color_primary": "#FF0000",
 			"color_secondary": "#FFFFFF",
 			"stroke_color": "#000000",
@@ -392,8 +387,7 @@
 				}
 			]
 		},
-		{
-			"name": "Führungsstellen",
+		{	"name": "Führungsstellen",
 			"symbols": [
 				{
 					"name": "Führungsstelle",
@@ -439,48 +433,7 @@
 				}
 			]
 		},
-		{
-			"name": "Feuerwehr Einheiten",
-			"color_primary": "#FF0000",
-			"color_secondary": "#FFFFFF",
-			"stroke_color": "#000000",
-			"color_text": "#FFFFFF",
-			"organization": "",
-			"symbols": [
-				{
-					"name": "Dekontaminationsgruppe",
-					"template": "Dekontaminationsgruppe.svg",
-					"denominator": "G",
-					"variants": {
-						"g": "Dekontaminationsgruppe - Gerät"
-					}
-				},
-				{
-					"name": "Dekontaminationsgruppe",
-					"template": "Dekontaminationsgruppe.svg",
-					"denominator": "P",
-					"variants": {
-						"p": "Dekontaminationsgruppe - Personen"
-					}
-				},
-				{
-					"name": "ABC Erkundungsgruppe",
-					"template": "Dekontaminationsgruppe.svg",
-					"variants": {
-						"abc_erkundung": "ABC Erkundungsgruppe"
-					}
-				},
-				{
-					"name": "Gefahrstoffzug - ABC-Zug",
-					"template": "Dekontaminationsgruppe.svg",
-					"variants": {
-						"abc_zug": "Gefahrstoffzug - ABC-Zug"
-					}
-				}
-			]
-		},
-		{
-			"name": "Gefahren",
+		{	"name": "Gefahren",
 			"color_primary": "#FF0000",
 			"symbols": [
 				{
@@ -568,8 +521,7 @@
 				}
 			]
 		},
-		{
-			"name": "Personen",
+		{	"name": "Personen",
 			"symbols": [
 				{
 					"name": "Person",
@@ -639,8 +591,7 @@
 				}
 			]
 		},
-		{
-			"name": "Maßnahmen",
+		{	"name": "Maßnahmen",
 			"symbols": [
 				{
 					"name": "Maßnahme",
@@ -658,8 +609,7 @@
 				}
 			]
 		},
-		{
-			"name": "Fahrzeuge",
+		{	"name": "Fahrzeuge",
 			"color_primary": "#FFFFFF",
 			"color_secondary": "#000000",
 			"stroke_color": "#000000",
@@ -711,8 +661,7 @@
 				}
 			]
 		},
-		{
-			"name": "Gebäude",
+		{	"name": "Gebäude",
 			"color_primary": "#FFFFFF",
 			"color_secondary": "#000000",
 			"stroke_color": "#000000",
@@ -728,8 +677,7 @@
 				}
 			]
 		},
-		{
-			"name": "Einrichtungen",
+		{	"name": "Einrichtungen",
 			"color_primary": "#FFFF00",
 			"stroke_color": "#000000",
 			"symbols": [
@@ -814,8 +762,7 @@
 				}
 			]
 		},
-		{
-			"name": "Schäden",
+		{	"name": "Schäden",
 			"symbols": [
 				{
 					"name": "Beschädigung",
@@ -870,8 +817,7 @@
 				}
 			]
 		},
-		{
-			"name": "Sonstiges",
+		{	"name": "Sonstiges",
 			"symbols": [
 				{
 					"name": "Ereignis",
@@ -954,8 +900,7 @@
 				}
 			]
 		},
-		{
-			"name": "Funk",
+		{	"name": "Funk",
 			"color_primary": "#FFFFFF",
 			"stroke_color": "#000000",
 			"color_text": "#000000",
@@ -1002,8 +947,7 @@
 				}
 			]
 		},
-		{
-			"name": "Polizei Einheiten",
+		{	"name": "Polizei Einheiten",
 			"color_primary": "#13A538",
 			"color_secondary": "#000000",
 			"stroke_color": "#000000",

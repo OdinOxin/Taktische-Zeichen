@@ -20,7 +20,16 @@
 	-->
 	
 	<rect x="10" y="64" width="236" height="128" fill="{{ color_primary }}" stroke="{{ color_secondary }}" stroke-width="10" clip-path="url(#symbol)" /> {{! Fill all; Large border }}
+	{{#attrCond "abc" "&&" "survey"}}
+	<path d="M10,192 l236,-128" stroke-width="5" stroke="{{ color_secondary }}" fill="none" clip-path="url(#symbol)" />
+	{{/attrCond}}
 	<rect x="10" y="64" width="236" height="128" fill="none" stroke="{{ stroke_color }}" stroke-width="1" /> {{! Black border}}
+	{{#attr "leading"}}
+	<rect x="11" y="65" width="234" height="25" fill="{{ color_secondary }}" />
+	{{/attr}}
+	{{#attr "supply"}}
+	<rect x="11" y="166" width="234" height="25" fill="{{ color_secondary }}" />
+	{{/attr}}
 	
 	<!--
 	{{#if rettungswesen}}
@@ -44,8 +53,18 @@
 	<ellipse cx="192" cy="86" rx="10" ry="10" fill="{{ color_secondary }}" />
 	{{/attr}}
 
-	{{#attr "löschzug"}}
+	{{#attr "extinguish"}}
 	<path d="M11 128 L245 128 M156 128 L241 69 M156 128 L241 187" stroke="{{ color_secondary }}" stroke-width="10" fill="none" />
+	{{/attr}}
+	
+	{{#attrCond "abc" "||" "decon"}}
+	<path d="M88 92 L188 164 M168 92 L68 164" stroke="{{ color_secondary }}" stroke-width="10" fill="none" />
+	<ellipse cx="78" cy="102" rx="20" ry="20" fill="{{ color_secondary }}" />
+	<ellipse cx="178" cy="102" rx="20" ry="20" fill="{{ color_secondary }}" />
+	{{/attrCond}}
+	{{#attr "decon"}}
+		<path d="M185,161 m7,7 l-15,0 m15,0 l0,-15 l-15,15 Z" fill="{{ color_secondary }}" transform="rotate(-10,188,164)" />
+		<path d="M71,161 m-7,7 l15,0 l-15,-15 Z" fill="{{ color_secondary }}" transform="rotate(10,68,164)" />
 	{{/attr}}
 	
 	<!--
@@ -74,18 +93,22 @@
 	<text fill="{{ color_text }}" font-family="Roboto Slab Bold" dominant-baseline="text-before-edge" font-size="200%" text-anchor="start" x="22" y="70">{{ label }}</text>
 	{{/if}}
 	-->
-	{{#attr "löschzug"}}
+	{{#attr "extinguish"}}
 	<text x="22" y="100" alignment-baseline="before-edge" font-size="200%" font-family="Roboto Slab Bold" fill="{{ color_text }}">{{ label }}</text>
 	{{else}}
 	<text font-size="300%" fill="{{ color_text }}" font-family="Roboto Slab Bold" dominant-baseline="central" text-anchor="middle" x="128" y="128">{{ label }}</text>
 	{{/attr}}
 
 	{{#if denominator}}
-	<text fill="{{ color_text }}" font-family="Roboto Slab Bold"  text-anchor="start" x="20" y="180">{{ denominator }}</text>
+		{{#attr "decon"}}
+		<text font-family="Roboto Slab Bold" font-size="200%" fill="{{ color_text }}" x="128" text-anchor="middle" y="182">{{ denominator }}</text>
+		{{else}}
+		<text fill="{{ color_text }}" font-family="Roboto Slab Bold"  text-anchor="start" x="20" y="180">{{ denominator }}</text>
+		{{/attr}}
 	{{/if}}
 
 	{{#if organization}}
-	{{#attr "löschzug"}}
+	{{#attr "extinguish"}}
 		{{! Do not print organization in this case }}
 	{{else}}
 	<text fill="{{ color_text }}" font-family="Roboto Slab Bold"  text-anchor="end" x="236" y="180">{{ organization }}</text>
