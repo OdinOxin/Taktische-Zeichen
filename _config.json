@@ -1,6 +1,4 @@
 {
-	"fonts": [
-	],
 	"sets": [
 		{	"name": "Rettungswesen Personen",
 			"color_primary": "#FFFFFF",
@@ -437,53 +435,6 @@
 			"color_primary": "#FF0000",
 			"symbols": [
 				{
-					"name": "Akute Gefahr",
-					"template": "Gefahr.svg",
-					"denominator": "!",
-					"variants": {
-						"explosion": "Akute Gefahr durch Explosion",
-						"oil": "Akute Gefahr durch Mineralöl",
-						"radioactivity": "Akute Gefahr durch Radioaktivität",
-						"electricity": "Akute Gefahr durch elektrischen Strom",
-						"explosives": "Akute Gefahr durch Explosivstoffe",
-						"hazardous_materials": "Akute Gefahr durch gefährliche Stoffe",
-						"suffocation": "Akute Gefahr durch Luftmangel",
-						"gas": "Akute Gefahr durch Gas",
-						"unspecified": "Akute Gefahr"
-					}
-				},
-				{
-					"name": "Vermutete Gefahr",
-					"template": "Gefahr.svg",
-					"denominator": "?",
-					"variants": {
-						"explosion": "Vermutete Gefahr durch Explosion",
-						"oil": "Vermutete Gefahr durch Mineralöl",
-						"radioactivity": "Vermutete Gefahr durch Radioaktivität",
-						"electricity": "Vermutete Gefahr durch elektrischen Strom",
-						"explosives": "Vermutete Gefahr durch Explosivstoffe",
-						"hazardous_materials": "Vermutete Gefahr durch gefährliche Stoffe",
-						"suffocation": "Vermutete Gefahr durch Luftmangel",
-						"gas": "Vermutete Gefahr durch Gas",
-						"unspecified": "Vermutete Gefahr"
-					}
-				},
-				{
-					"name": "Gefahr",
-					"template": "Gefahr.svg",
-					"variants": {
-						"explosion": "Gefahr durch Explosion",
-						"oil": "Gefahr durch Mineralöl",
-						"radioactivity": "Gefahr durch Radioaktivität",
-						"electricity": "Gefahr durch elektrischen Strom",
-						"explosives": "Gefahr durch Explosivstoffe",
-						"hazardous_materials": "Gefahr durch gefährliche Stoffe",
-						"suffocation": "Gefahr durch Luftmangel",
-						"gas": "Gefahr durch Gas",
-						"unspecified": "Gefahr"
-					}
-				},
-				{
 					"name": "Brand",
 					"template": "Brand.svg",
 					"variants": {
@@ -491,32 +442,6 @@
 						"entstehungsbrand": "Entstehungsbrand",
 						"fortentwickelt": "Fortentwickelter Brand",
 						"flächenbrand": "Flächenbrand"
-					}
-				},
-				{
-					"name": "Wassereinbruch",
-					"template": "Gefahr.svg",
-					"color_primary": "#003399",
-					"variants": {
-						"water_ingress": "Gefahr durch Wassereinbruch"
-					}
-				},
-				{
-					"name": "Vermutete Gefahr durch Wassereinbruch",
-					"template": "Gefahr.svg",
-					"color_primary": "#003399",
-					"denominator": "?",
-					"variants": {
-						"water_ingress": "Vermutete Gefahr durch Wassereinbruch"
-					}
-				},
-				{
-					"name": "Akute Gefahr durch Wassereinbruch",
-					"template": "Gefahr.svg",
-					"color_primary": "#003399",
-					"denominator": "!",
-					"variants": {
-						"water_ingress": "Akute Gefahr durch Wassereinbruch"
 					}
 				}
 			]
@@ -568,76 +493,6 @@
 						"truppführer": "Truppführer",
 						"gruppenführer": "Gruppenführer",
 						"zugführer": "Zugführer"
-					}
-				}
-			]
-		},
-		{	"name": "Maßnahmen",
-			"symbols": [
-				{
-					"name": "Maßnahme",
-					"template": "Maßnahme.svg",
-					"variants": {
-						"survey": "Erkunden",
-						"blast": "Sprengen",
-						"bridge": "Brückenbau",
-						"cleanup": "Räumen",
-						"decontaminate": "Dekontaminieren",
-						"maßnahme": "Maßnahme",
-						"betreuung": "Betreuung",
-						"transport": "Transportieren"
-					}
-				}
-			]
-		},
-		{	"name": "Fahrzeuge",
-			"color_primary": "#FFFFFF",
-			"color_secondary": "#000000",
-			"stroke_color": "#000000",
-			"symbols": [
-				{
-					"name": "Fahrzeug",
-					"template": "Fahrzeug.svg",
-					"variants": {
-						"three_wheels": "Kraftfahrzeug geländegängig",
-						"two_wheels": "Kraftfahrzeug",
-						"tracks": "Kettenfahrzeug",
-						"rail": "Schienenfahrzeug",
-						"container": "Abrollbehälter, Container",
-						"trailer": "Anhänger",
-						"none": "Fahrzeug"
-					}
-				},
-				{
-					"name": "Wasserfahrzeug",
-					"template": "Wasserfahrzeug.svg",
-					"variants": {
-						"none": "Wasserfahrzeug"
-					}
-				},
-				{
-					"name": "Zweirad",
-					"template": "Zweirad.svg",
-					"variants": {
-						"motorcycle": "Kraftrad",
-						"bicycle": "Fahrrad"
-					}
-				},
-				{
-					"name": "Luftfahrzeug",
-					"template": "Luftfahrzeug.svg",
-					"variants": {
-						"hubschrauber": "Hubschrauber",
-						"flugzeug": "Flugzeug"
-					}
-				},
-				{
-					"name": "Wechselladerfahrzeug",
-					"template": "Wechselladerfahrzeug.svg",
-					"color_primary": "#FFFFFF",
-					"stroke_color": "#000000",
-					"variants": {
-						"wechselladerfahrzeug": "Wechselladerfahrzeug"
 					}
 				}
 			]

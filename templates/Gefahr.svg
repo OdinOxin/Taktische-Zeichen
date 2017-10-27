@@ -13,47 +13,47 @@
 
 	<path d="M50,64 L128,192 L206,64 Z" stroke-width="5" stroke="{{ color_primary }}" fill="none" />
 
-	{{#if explosion}}
+	{{#attr "explosion"}}
 	<text font-family="Roboto Slab Bold" dominant-baseline="central" text-anchor="middle" fill="{{ color_primary }}" font-size="350%" x="128" y="108">Ex</text>
-	{{/if}}
+	{{/attr}}
 
-	{{#if oil}}
+	{{#attr "oil"}}
 	<text font-family="Roboto Slab Bold" dominant-baseline="central" text-anchor="middle" fill="{{ color_primary }}" font-size="350%" x="128" y="108">Öl</text>
-	{{/if}}
+	{{/attr}}
 
-	{{#if radioactivity}}
+	{{#attr "radioactivity"}}
 	<text font-family="Roboto Slab Bold" dominant-baseline="central" text-anchor="middle" fill="{{ color_primary }}" font-size="350%" x="128" y="108">A</text>
-	{{/if}}
+	{{/attr}}
 
-	{{#if electricity}}
+	{{#attr "electricity"}}
 	<path d="M118,80 l0,40 l20,-20 l0,50 m-10,-10 l10,10 l 10,-10" stroke-width="5" stroke="{{ color_primary }}" fill="none" />
-	{{/if}}
+	{{/attr}}
 
-	{{#if hazardous_materials}}
+	{{#attr "hazardous_materials"}}
 	<text font-family="Roboto Slab Bold" dominant-baseline="central" text-anchor="middle" fill="{{ color_primary }}" font-size="350%" x="128" y="108">GS</text>
-	{{/if}}
+	{{/attr}}
 
-	{{#if explosives}}
+	{{#attr "explosives"}}
 	<ellipse cx="128" cy="108" rx="24" ry="24" stroke="{{ color_primary }}" stroke-width="10" fill="none" />
 	<ellipse cx="128" cy="108" rx="10" ry="10" fill="{{ color_primary }}" />
 	<rect x="123" y="76" fill="{{ color_primary }}" width="10" height="10" transform="rotate(30,128,108)" />
 	<rect x="123" y="76" fill="{{ color_primary }}" width="10" height="10" transform="rotate(-30,128,108)" />
-	{{/if}}
+	{{/attr}}
 
-	{{#if gas}}
+	{{#attr "gas"}}
 	<text font-family="Roboto Slab Bold" dominant-baseline="central" text-anchor="middle" fill="{{ color_primary }}" font-size="250%" x="128" y="108">Gas</text>
-	{{/if}}
+	{{/attr}}
 
-	{{#if suffocation}}
+	{{#attr "suffocation"}}
 	<text font-family="Roboto Slab Bold" dominant-baseline="central" text-anchor="middle" fill="{{ color_primary }}" font-size="350%" x="128" y="108">L</text>
-	{{/if}}
+	{{/attr}}
+	
+	{{#attr "water_ingress"}}
+	<path d="M78,84 a10,10 180 1 1 20,0 a10,10 180 1 0 20,0 a10,10 180 1 1 20,0 a10,10 180 1 0 20,0 a10,10 180 1 1 20,0" stroke="{{ color_primary }}" stroke-width="5" fill="none" />
+	<path d="M78,100 a10,10 180 1 1 20,0 a10,10 180 1 0 20,0 a10,10 180 1 1 20,0 a10,10 180 1 0 20,0 a10,10 180 1 1 20,0" stroke="{{ color_primary }}" stroke-width="5" fill="none" />
+	{{/attr}}
 
 	{{#if denominator}}
 	<text font-family="Roboto Slab Bold" dominant-baseline="central" text-anchor="middle" fill="{{ color_primary }}" font-size="400%" x="64" y="150">{{ denominator }}</text>
-	{{/if}}
-
-	{{#if water_ingress}}
-	<path d="M78,84 a10,10 180 1 1 20,0 a10,10 180 1 0 20,0 a10,10 180 1 1 20,0 a10,10 180 1 0 20,0 a10,10 180 1 1 20,0" stroke="{{ color_primary }}" stroke-width="5" fill="none" />
-	<path d="M78,100 a10,10 180 1 1 20,0 a10,10 180 1 0 20,0 a10,10 180 1 1 20,0 a10,10 180 1 0 20,0 a10,10 180 1 1 20,0" stroke="{{ color_primary }}" stroke-width="5" fill="none" />
 	{{/if}}
 </svg>

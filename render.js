@@ -230,12 +230,45 @@ function createSymbols(set) {
 
 		var template = fs.readFileSync(path.join(__dirname, "templates", symbol.template), { encoding: "utf8" });
 		template = Handlebars.compile(template);
-		
-		console.log("\tGenerating symbol: '" + symbol.filename + ".svg'...");
-		var compiled_symbol = template(symbol);
-		compiled_symbol = compiled_symbol.replace(/^\s*[\r\n]/gm, "");
-		//var finalPath = path.join(__dirname, "symbols");
-		var finalPath = symbol.path;
-		fs.writeFileSync(path.join(finalPath, symbol.filename + ".svg"), compiled_symbol);
+
+		if(symbol.variantmatrix !== undefined) {
+			var indices = [];
+			for(var i = 0; i < symbol.variantmatrix.length; i++)
+				indices.push(0);
+			rek(template, symbol, symbol, indices, 0);
+		}
+		else
+			createVariant(template, symbol);
 	}
+}
+
+function rek(template, symbol, inputSymbol, indices, i) {
+	for(indices[i] = 0; indices[i] < symbol.variantmatrix[i].variants.length; indices[i]++) {
+		var tmpSymbol = {};
+		copySetAttributes(symbol.variantmatrix[i].variants[indices[i]], tmpSymbol);
+		copySetAttributes(inputSymbol, tmpSymbol);
+		if(i < indices.length - 1) {
+			if(symbol.variantmatrix[i].variants[indices[i]].name !== "") {
+				tmpSymbol.path = path.join(tmpSymbol.path, symbol.variantmatrix[i].variants[indices[i]].name);
+				if(!fs.existsSync(tmpSymbol.path)) {
+					fs.mkdirSync(tmpSymbol.path);
+				}
+			}
+			rek(template, symbol, tmpSymbol, indices, i+1);
+		}
+		else {
+			if(symbol.variantmatrix[i].variants[indices[i]].name !== "")
+				tmpSymbol.filename += "_" + symbol.variantmatrix[i].variants[indices[i]].name;
+			createVariant(template, tmpSymbol);
+		}
+	}
+}
+
+function createVariant(template, symbol) {
+	console.log("\tGenerating symbol (variant): '" + symbol.filename + ".svg'...");
+	var compiled_symbol = template(symbol);
+	compiled_symbol = compiled_symbol.replace(/^\s*[\r\n]/gm, "");
+	//var finalPath = path.join(__dirname, "symbols");
+	var finalPath = symbol.path;
+	fs.writeFileSync(path.join(finalPath, symbol.filename + ".svg"), compiled_symbol);
 }

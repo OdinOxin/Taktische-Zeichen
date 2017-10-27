@@ -1,7 +1,81 @@
 {
-	"fonts": [
-	],
 	"sets": [
+		{	"name": "Basis",
+			"color_primary": "#FFFFFF",
+			"color_secondary": "#000000",
+			"stroke_color": "#000000",
+			"color_text": "#000000",
+			"symbols": [
+				{	"filename": "Ortsfest",		"template": "Ortsfest.svg" },
+				{	"filename": "Einrichtung",	"template": "Einrichtung.svg" }
+			],
+			"subsets": [
+				{	"name": "Personen",
+					"template": "Person.svg",
+					"symbols": [
+						{	"filename": "Person" },
+						{	"filename": "Person_verletzt",			"attr": [ "hurt" ] },
+						{	"filename": "Person_tot",				"attr": [ "dead" ] },
+						{	"filename": "Person_vermisst",			"attr": [ "missing" ] },
+						{	"filename": "Person_verschüttet",		"attr": [ "spilled" ] },
+						{	"filename": "Person_gerettet",			"attr": [ "saved" ] },
+						{	"filename": "Person_zuTransportieren",	"attr": [ "to_be_moved" ] },
+						{	"filename": "Person_transportiert",		"attr": [ "moved" ] },
+						{	"filename": "Person_mitSonderfunktion",	"attr": [ "special_function" ] },
+						{	"filename": "Führungskraft",			"attr": [ "leading" ] },
+						{	"filename": "TrFü",						"attr": [ "troop" ] },
+						{	"filename": "GrFü",						"attr": [ "group" ] },
+						{	"filename": "ZFü",						"attr": [ "platoon" ] },
+						{	"filename": "ZTrFü",					"attr": [ "platoontroop" ] }
+					]
+				},
+				{	"name": "Einheiten",
+					"template": "Einheit.svg",
+					"symbols": [
+						{	"filename": "Einheit" },
+						{	"filename": "Trupp",	"attr": [ "troop" ] },
+						{	"filename": "Gruppe",	"attr": [ "group" ] },
+						{	"filename": "Zug",		"attr": [ "platoon" ] },
+						{	"filename": "Zugtrupp",	"attr": [ "platoontroop" ] }
+					]
+				},
+				{	"name": "Fahrzeuge",
+					"template": "Fahrzeug.svg",
+					"symbols": [
+						{	"filename": "Fzg" },
+						{	"filename": "Fzg_Str",		"attr": [ "roadonly" ] },
+						{	"filename": "Fzg_gl",		"attr": [ "offroad" ] },
+						{	"filename": "Fzg_kt",		"attr": [ "tracks" ] },
+						{	"filename": "Fzg_rl",		"attr": [ "rail" ] },
+						{	"filename": "Anh",			"attr": [ "trailer" ] },
+						{	"filename": "WLF",			"attr": [ "swapbodyloader" ] },
+						{	"filename": "Container",	"attr": [ "container" ] }
+					],
+					"subsets": [
+						{	"name": "Zweiräder",
+							"template": "Zweirad.svg",
+							"symbols": [
+								{	"filename": "Fahrrad" },
+								{	"filename": "Motorrad", "attr": [ "motor" ] }
+							]
+						},
+						{	"name": "Wasserfahrzeuge",
+							"template": "Wasserfahrzeug.svg",
+							"symbols": [
+								{	"filename": "Boot" }
+							]
+						},
+						{	"name": "Luftfahrzeuge",
+							"template": "Luftfahrzeug.svg",
+							"symbols": [
+								{	"filename": "Flugzeug",		"attr": [ "plane" ] },
+								{	"filename": "Hubschrauber",	"attr": [ "heli" ] }
+							]
+						}
+					]
+				}
+			]
+		},
 		{	"name": "THW",
 			"color_primary": "#120A8F",
 			"color_secondary": "#FFFFFF",
@@ -265,7 +339,7 @@
 					]
 				},
 				{	"name": "Einrichtungen",
-					"template": "Gebäude.svg",
+					"template": "Einrichtung.svg",
 					"symbols": [
 						{	"filename": "Ltg",	"label": "Ltg" },
 						{	"filename": "BuS",	"label": "BuS" },
@@ -315,58 +389,60 @@
 					]
 				},
 				{	"name": "Einrichtungen",
-					"template": "Gebäude.svg",
+					"template": "Einrichtung.svg",
 					"symbols": [
 						{	"filename": "Gerätehaus", "label": "FW" }
 					]
 				}
 			]
 		},
-		{	"name": "Basis",
-			"color_primary": "#FFFFFF",
-			"color_secondary": "#000000",
-			"stroke_color": "#000000",
-			"color_text": "#000000",
-			"subsets": [
-				{	"name": "Personen",
-					"template": "Person.svg",
-					"symbols": [
-						{	"filename": "Person" },
-						{	"filename": "Person_verletzt",			"attr": [ "hurt" ] },
-						{	"filename": "Person_tot",				"attr": [ "dead" ] },
-						{	"filename": "Person_vermisst",			"attr": [ "missing" ] },
-						{	"filename": "Person_verschüttet",		"attr": [ "spilled" ] },
-						{	"filename": "Person_gerettet",			"attr": [ "saved" ] },
-						{	"filename": "Person_zuTransportieren",	"attr": [ "to_be_moved" ] },
-						{	"filename": "Person_transportiert",		"attr": [ "moved" ] },
-						{	"filename": "Person_mitSonderfunktion",	"attr": [ "special_function" ] },
-						{	"filename": "Führungskraft",			"attr": [ "leading" ] },
-						{	"filename": "TrFü",						"attr": [ "troop" ] },
-						{	"filename": "GrFü",						"attr": [ "group" ] },
-						{	"filename": "ZFü",						"attr": [ "platoon" ] },
-						{	"filename": "ZTrFü",					"attr": [ "platoontroop" ] }
+		{	"name": "Gefahren",
+			"color_primary": "#FF0000",
+			"template": "Gefahr.svg",
+			"symbols": [
+				{	"filename": "Gefahr",
+					"variantmatrix": [
+						{ "variants": [
+								{ "name": "" },
+								{ "name": "Akut",		"denominator": "!"},
+								{ "name": "Vermutet",	"denominator": "?"}
+							]
+						},
+						{ "variants": [
+								{ "name": "" },
+								{ "name": "Explosion",		"attr": [ "explosion" ] },
+								{ "name": "Öl", 			"attr": [ "oil" ] },
+								{ "name": "Radioaktivität",	"attr": [ "radioactivity" ] },
+								{ "name": "Elektrizität", 	"attr": [ "electricity" ] },
+								{ "name": "Explosives", 	"attr": [ "explosives" ] },
+								{ "name": "Stoffe", 		"attr": [ "hazardous_materials" ] },
+								{ "name": "Luftmangel",		"attr": [ "suffocation" ] },
+								{ "name": "Gas", 			"attr": [ "gas" ] },
+								{ "name": "Wassereinbruch",	"attr": [ "water_ingress" ], "color_primary": "#003399" }
+							]
+						}
 					]
-				},
-				{	"name": "Einheiten",
-					"template": "Einheit.svg",
-					"symbols": [
-						{	"filename": "Einheit" },
-						{	"filename": "Trupp",	"attr": [ "troop" ] },
-						{	"filename": "Gruppe",	"attr": [ "group" ] },
-						{	"filename": "Zug",		"attr": [ "platoon" ] },
-						{	"filename": "Zugtrupp",	"attr": [ "platoontroop" ] }
-					]
-				},
-				{	"name": "Fahrzeuge",
-					"template": "Fahrzeug.svg",
-					"symbols": [
-						{	"filename": "Fzg" },
-						{	"filename": "Fzg_Str",	"attr": [ "roadonly" ] },
-						{	"filename": "Fzg_gl",	"attr": [ "offroad" ] },
-						{	"filename": "Fzg_kt",	"attr": [ "tracks" ] },
-						{	"filename": "Fzg_rl",	"attr": [ "rail" ] },
-						{	"filename": "Anh",		"attr": [ "trailer" ] },
-						{	"filename": "WLF",		"attr": [ "swapbodyloader" ] }
+				}
+			]
+		},
+		{	"name": "Maßnahmen",
+			"color_primary": "#000000",
+			"template": "Maßnahme.svg",
+			"symbols": [
+				{	"filename": "Maßnahme",
+					"variantmatrix": [
+						{ "variants": [
+								{ "name": "" },
+								{ "name": "Betreuung",			"attr": [ "care" ] },
+								{ "name": "Erkunden",			"attr": [ "survey" ] },
+								{ "name": "Beobachten",			"attr": [ "survey" ] },
+								{ "name": "Brückenbau",			"attr": [ "bridge" ] },
+								{ "name": "Dekontaminieren",	"attr": [ "decon" ] },
+								{ "name": "Räumen",				"attr": [ "clear" ] },
+								{ "name": "Sprengen",			"attr": [ "blast" ] },
+								{ "name": "Transport",			"attr": [ "transport" ] }
+							]
+						}
 					]
 				}
 			]
