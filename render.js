@@ -173,6 +173,8 @@ function createSymbols(set) {
 	console.log("Creating " + set.symbols.length + " symbol(s)...");
 	for(var x = 0; x < set.symbols.length; x++) {
 		var symbol = set.symbols[x];
+		if(symbol.filename === undefined)
+			continue;
 		console.log((x+1) + ".\t" + symbol.filename);
 		copySetAttributes(set, symbol);
 		//console.log("\tSymbol (JSON): " + JSON.stringify(symbol));
@@ -190,6 +192,8 @@ function createSymbols(set) {
 		console.log("\tGenerating symbol: '" + symbol.filename + ".svg'...");
 		var compiled_symbol = template(symbol);
 		compiled_symbol = compiled_symbol.replace(/^\s*[\r\n]/gm, "");
-		fs.writeFileSync(path.join(set.path, symbol.filename + ".svg"), compiled_symbol);
+		//var finalPath = path.join(__dirname, "symbols");
+		var finalPath = symbol.path;
+		fs.writeFileSync(path.join(finalPath, symbol.filename + ".svg"), compiled_symbol);
 	}
 }

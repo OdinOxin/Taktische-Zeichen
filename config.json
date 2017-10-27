@@ -2,8 +2,7 @@
 	"fonts": [
 	],
 	"sets": [
-		{
-			"name": "THW",
+		{	"name": "THW",
 			"color_primary": "#120A8F",
 			"color_secondary": "#FFFFFF",
 			"stroke_color": "#000000",
@@ -13,132 +12,342 @@
 				"thw"
 			],
 			"subsets": [
-				{
-					"name": "Einheiten",
+				{	"name": "Einheiten",
 					"template": "Einheit.svg",
-					"symbols": [
-						{
-							"filename": "TZ",
-							"label": "TZ",
+					"subsets": [
+						{	"name": "Züge",
 							"attr": [
-								"brigade"
+								"platoon"
+							],
+							"symbols": [
+								{	"filename": "Blanko" },
+								{	"filename": "TZ", "label": "TZ" },
+								{	"filename": "TZ_", "label": "TZ-" },
+								{	"filename": "TZ_Bel", "label": "TZ-Bel" },
+								{	"filename": "TZ_BrB", "label": "TZ-BrB" },
+								{	"filename": "TZ_E", "label": "TZ-E" },
+								{	"filename": "TZ_I", "label": "TZ-I" },
+								{	"filename": "TZ_Öl", "label": "TZ-Öl" },
+								{	"filename": "TZ_R", "label": "TZ-R" },
+								{	"filename": "TZ_TW", "label": "TZ-TW" },
+								{	"filename": "TZ_W", "label": "TZ-W" },
+								{	"filename": "TZ_WP", "label": "TZ-WP" },
+								
+								{}
 							]
 						},
-						{
-							"filename": "B1",
-							"label": "B 1",
+						{	"name": "Gruppen",
 							"attr": [
 								"group"
+							],
+							"symbols": [
+								{	"filename": "Blanko" },
+								{	"filename": "B1",		"label": "B 1" },
+								{	"filename": "B2",		"label": "B 2" },
+								{	"filename": "FGr_Bel",	"label": "Bel" },
+								{	"filename": "FGr_BrB",	"label": "BrB" },
+								{	"filename": "FGr_E",	"label": "E" },
+								{	"filename": "FGr_FK",	"label": "FK" },
+								{	"filename": "FGr_FK_A",	"label": "FK",
+									"denominator": "A" },
+								{	"filename": "FGr_FK_B",	"label": "FK",
+									"denominator": "B" },
+								{	"filename": "FGr_I",	"label": "I" },
+								{	"filename": "FGr_Öl",	"label": "Öl" },
+								{	"filename": "FGr_Öl_A",	"label": "Öl",
+									"denominator": "A"},
+								{	"filename": "FGr_Öl_B",	"label": "Öl",
+									"denominator": "B"},
+								{	"filename": "FGr_Öl_C",	"label": "Öl",
+									"denominator": "C"},
+								{	"filename": "FGr_O",	"label": "O" },
+								{	"filename": "FGr_O_A",	"label": "O",
+									"denominator": "A"},
+								{	"filename": "FGr_O_B",	"label": "O",
+									"denominator": "B"},
+								{	"filename": "FGr_R",	"label": "R" },
+								{	"filename": "FGr_R_A",	"label": "R",
+									"denominator": "A"},
+								{	"filename": "FGr_R_B",	"label": "R",
+									"denominator": "B"},
+								{	"filename": "FGr_Sp",	"label": "Sp" },
+								{	"filename": "FGr_TW",	"label": "TW" },
+								{	"filename": "FGr_W",	"label": "W" },
+								{	"filename": "FGr_W_A",	"label": "W",
+									"denominator": "A"},
+								{	"filename": "FGr_W_B",	"label": "W",
+									"denominator": "B"},
+								{	"filename": "FGr_WP",	"label": "WP" },
+								
+								{}
 							]
 						},
-						{
-							"filename": "B2",
-							"label": "B 2",
-							"attr": [
-								"group"
-							]
-						},
-						{
-							"filename": "Fm",
-							"label": "Fm",
+						{	"name": "Trupps",
 							"attr": [
 								"troop"
+							],
+							"symbols": [
+								{	"filename": "Blanko" },
+								{	"filename": "TZ",	"label": "TZ",
+									"attr": [ "platoontroop" ] },
+								{	"filename": "Log",	"label": "Log" },
+								{	"filename": "Log_M",	"label": "Log-M" },
+								{	"filename": "Log_V",	"label": "Log-V" },
+								{	"filename": "FüKom",	"label": "FüKom" },
+								{	"filename": "Fü",	"label": "Fü" },
+								{	"filename": "Fm",	"label": "Fm" },
+								
+								{}
 							]
 						}
 					]
 				},
-				{
-					"name": "Funktionsträger",
+				{	"name": "Funktionsträger",
 					"template": "Person.svg",
 					"subsets": [
-						{
-							"name": "TZ",
+						{	"name": "TZ",
 							"symbols": [
-								{
-									"filename": "ZFü",
+								{	"filename": "ZFü",
 									"label": "TZ",
 									"attr": [
-										"brigade"
+										"platoon"
 									]
 								},
-								{
-									"filename": "ZTrFü",
+								{	"filename": "ZTrFü",
 									"label": "TZ",
 									"attr": [
 										"troop",
-										"ZTrFü"
+										"platoontroop"
 									]
 								},
-								{
-									"filename": "GrFüB1",
+								{	"filename": "GrFüB1",
 									"label": "B1",
 									"attr": [
 										"group"
 									]
 								},
-								{
-									"filename": "GrFüB2",
+								{	"filename": "GrFüB2",
 									"label": "B2",
 									"attr": [
 										"group"
 									]
 								},
-								{
-									"filename": "TrFüB1",
+								{	"filename": "TrFüB1",
 									"label": "B1",
 									"attr": [
 										"troop"
 									]
 								},
-								{
-									"filename": "TrFüB2",
+								{	"filename": "TrFüB2",
 									"label": "B2",
 									"attr": [
 										"troop"
 									]
 								},
-								{
-									"filename": "FaHeB1",
+								{	"filename": "FaHeB1",
 									"label": "B1"
 								},
-								{
-									"filename": "FaHeB2",
+								{	"filename": "FaHeB2",
 									"label": "B2"
+								}
+							]
+						},
+						{	"name": "Stab",
+							"symbols": [
+								{	"filename": "FaBe",
+									"label": "FaBe",
+									"font_size": "200%",
+									"attr": [
+										"special_function"
+									]
 								}
 							]
 						}
 					],
 					"symbols": [
-						{
-							"filename": "FaHe_Blank"
+						{ "filename": "Blanko" },
+						{ "filename": "FaHe",	"label": "FaHe",
+							"font_size": "200%" },
+						{ "filename": "KF",		"label": "KF" },
+						
+						{}
+					]
+				},
+				{	"name": "Fahrzeuge",
+					"template": "Fahrzeug.svg",
+					"subsets": [
+						{	"name": "Anhänger",
+							"attr": [ "trailer" ],
+							"symbols": [
+								{	"filename": "LiMa",	"label": "LiMa" },
+								{	"filename": "NEA",	"label": "NEA" },
+								{	"filename": "SEA",	"label": "SEA" },
+								{	"filename": "Wkst",	"label": "Wkst" },
+								{	"filename": "Wkst",	"label": "Wkst" },
+								
+								{}
+							]
 						},
-						{
-							"filename": "FaHe",
-							"label": "FaHe",
-							"font_size": "200%"
+						{	"name": "Wasserfahrzeuge",
+							"template": "Wasserfahrzeug.svg",
+							"symbols": [
+								{	"filename": "Blanko"},
+								{	"filename": "MZB",		"label": "MZB"},
+								{	"filename": "MZPt",		"label": "MZPt"},
+								{	"filename": "SchlB",	"label": "SchlB"},
+								
+								{}
+							]
+						},
+						{	"name": "PKW",
+							"symbols": [
+								{	"filename": "PKW",			"label": "PKW",		"attr": [ "roadonly" ] },
+								{	"filename": "PKW_",			"label": "PKW-",	"attr": [ "roadonly" ] },
+								{	"filename": "PKW_OV",		"label": "PKW-OV",	"attr": [ "roadonly" ] },
+								{	"filename": "PKW_GSt",		"label": "PKW-GSt",	"attr": [ "roadonly" ] },
+								{	"filename": "PKW_gl",		"label": "PKW",		"attr": [ "offroad" ] },
+								{	"filename": "PKW_gl_",		"label": "PKW-",	"attr": [ "offroad" ] },
+								{	"filename": "PKW_gl_OV",	"label": "PKW-OV",	"attr": [ "offroad" ] },
+								
+								{}
+							]
+						},
+						{	"name": "MTW",
+							"symbols": [
+								{	"filename": "MTW",			"label": "MTW",		"attr": [ "roadonly" ] },
+								{	"filename": "MTW_",			"label": "MTW-",	"attr": [ "roadonly" ] },
+								{	"filename": "MTW_OV",		"label": "MTW-OV",	"attr": [ "roadonly" ] },
+								{	"filename": "MTW_TZ",		"label": "MTW-TZ",	"attr": [ "roadonly" ] },
+								
+								{}
+							]
+						},
+						{	"name": "MLW",
+							"symbols": [
+								{	"filename": "MLW_I",		"label": "MLW I",	"attr": [ "roadonly" ] },
+								{	"filename": "MLW_II",		"label": "MLW II",	"attr": [ "offroad" ] },
+								{	"filename": "MLW_III",		"label": "MLW III",	"attr": [ "offroad" ] },
+								{	"filename": "MLW_IV",		"label": "MLW IV",	"attr": [ "offroad" ] },
+								{	"filename": "MLW_V",		"label": "MLW V",	"attr": [ "offroad" ] },
+								
+								{}
+							]
+						},
+						{	"name": "WLF",
+							"template": "Wechselladerfahrzeug.svg",
+							"symbols": [
+								{	"filename": "WLF",			"label": "WLF",		"attr": [ "roadonly" ] },
+								{	"filename": "WLF_gl",		"label": "WLF",		"attr": [ "offroad" ] },
+								{	"filename": "WLF_Lkr",		"label": "WLF-Lkr",	"attr": [ "roadonly" ] },
+								{	"filename": "WLF_Lkr_gl",	"label": "WLF-Lkr",	"attr": [ "offroad" ] },
+								
+								{}
+							]
+						},
+						{	"name": "BRmG",
+							"symbols": [
+								{	"filename": "BRmG",			"label": "BRmG",	"attr": [ "offroad" ] },
+								{	"filename": "BRmG_gl",		"label": "BRmG",	"attr": [ "tracks" ] },
+								{	"filename": "BRmG_R",		"label": "BRmG-R",	"attr": [ "offroad" ] },
+								{	"filename": "BRmG_R_gl",	"label": "BRmG-R",	"attr": [ "tracks" ] },
+								{	"filename": "BRmG_B",		"label": "BRmG-B",	"attr": [ "offroad" ] },
+								{	"filename": "BRmG_B_gl",	"label": "BRmG-B",	"attr": [ "tracks" ] },
+								{	"filename": "BRmG_kl",		"label": "BRmG kl",	"attr": [ "offroad" ] },
+								{	"filename": "BRmG_kl_gl",	"label": "BRmG kl",	"attr": [ "tracks" ] },
+								
+								{}
+							]
+						},
+						{	"name": "LKW",
+							"symbols": [
+								{	"filename": "MzKW",			"label": "MzKW",	"attr": [ "offroad" ] },
+								{	"filename": "LKW",			"label": "LKW",		"attr": [ "offroad" ] },
+								{	"filename": "LKW_K",		"label": "LKW-K",	"attr": [ "offroad" ] },
+								{	"filename": "LKW_Lkr",		"label": "LKW-Lkr",	"attr": [ "offroad" ] },
+								
+								{}
+							]
+						},
+						{	"name": "FK",
+							"symbols": [
+								{	"filename": "FüKW",			"label": "FüKW",	"attr": [ "roadonly" ] },
+								
+								{}
+							]
 						}
+					],
+					"symbols": [
+						{	"filename": "Blanko",							"attr": [ "roadonly" ] },
+						{	"filename": "Blanko_gl",						"attr": [ "offroad" ] },
+						{	"filename": "Blanko_kt",						"attr": [ "tracks" ] },
+						{	"filename": "GKW_I",		"label": "GKW I",	"attr": [ "offroad" ] },
+						{	"filename": "GKW_II",		"label": "GKW II",	"attr": [ "offroad" ] },
+						
+						{}
+					]
+				},
+				{	"name": "Einrichtungen",
+					"template": "Gebäude.svg",
+					"symbols": [
+						{	"filename": "Ltg",	"label": "Ltg" },
+						{	"filename": "BuS",	"label": "BuS" },
+						{	"filename": "LV",	"label": "LV" },
+						{	"filename": "GSt",	"label": "GSt" },
+						{	"filename": "OV",	"label": "OV" },
+						
+						{}
 					]
 				}
 			]
 		},
-		{
-			"name": "Feuerwehr",
-			"color_primary": "#FF0000",
+		{	"name": "FW",
+			"color_primary": "#F70000",
 			"color_secondary": "#FFFFFF",
 			"stroke_color": "#000000",
 			"color_text": "#FFFFFF",
 			"organization": "FW",
-			"attr": [
-				"löschzug"
-			],
-			"symbols": [
-				{
-					"filename": "ZFü",
+			"subsets": [
+				{	"name":	"Einheiten",
+					"template": "Einheit.svg",
+					"symbols": [
+						{	"filename": "LZ",		"organization": "",		"attr": [ "löschzug" ] },
+						{	"filename": "LZ_FW", 							"attr": [ "löschzug" ] },
+						{	"filename": "LZ_BF",	"organization": "BF",	"attr": [ "löschzug" ] },
+						{	"filename": "LZ_FF",	"organization": "FF",	"attr": [ "löschzug" ] },
+						{	"filename": "LZ_WF",	"organization": "WF",	"attr": [ "löschzug" ] },
+						{	"filename": "LZ_W",		"organization": "W",	"attr": [ "löschzug" ] },
+						
+						{}
+					]
+				},
+				{	"name": "Funktionsträger",
 					"template": "Person.svg",
-					"attr": [
-						"brigade"
+					"symbols": [
+						{	"filename": "LZF",
+							"attr": [
+								"platoon"
+							]
+						},
+						{	"filename": "LZFü",
+							"attr": [
+								"platoon"
+							]
+						},
+						
+						{}
+					]
+				},
+				{	"name": "Einrichtungen",
+					"template": "Gebäude.svg",
+					"symbols": [
+						{	"filename": "Gerätehaus", "label": "FW" },
+						
+						{}
 					]
 				}
+			],
+			"attr": [
+				"löschzug"
 			]
 		}
 	]

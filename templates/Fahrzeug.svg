@@ -17,11 +17,11 @@
 			<path d="M10,64 L10,192 L246,192 L246,64 Q128,100 10,64 Z" />
 		</clipPath>
 
-		{{#if container}}
+		{{#attr "container"}}
 		<clipPath id="hook">
 			<rect x="0" y="44" width="10" height="148" />
 		</clipPath>
-		{{/if}}
+		{{/attr}}
 	</defs>
 
 	
@@ -95,35 +95,35 @@
 	
 	<path d="M10,64 L10,192 L246,192 L246,64 Q128,100 10,64 Z" fill="none" stroke-width="1" stroke="{{ stroke_color }}" />
 	
-	{{#if three_wheels}}
-	<ellipse cx="40" cy="196" rx="10" ry="10" stroke="{{ stroke_color }}" fill="none" stroke-width="5" clip-path="url(#wheels)" />
-	<ellipse cx="128" cy="196" rx="10" ry="10" stroke="{{ stroke_color }}" fill="none" stroke-width="5" clip-path="url(#wheels)" />
-	<ellipse cx="216" cy="196" rx="10" ry="10" stroke="{{ stroke_color }}" fill="none" stroke-width="5" clip-path="url(#wheels)" />
-	{{/if}}
+	{{#attr "offroad"}}
+	<ellipse cx="40"  cy="200" rx="10" ry="10" stroke="{{ stroke_color }}" fill="none" stroke-width="5" clip-path="url(#wheels)" />
+	<ellipse cx="128" cy="200" rx="10" ry="10" stroke="{{ stroke_color }}" fill="none" stroke-width="5" clip-path="url(#wheels)" />
+	<ellipse cx="216" cy="200" rx="10" ry="10" stroke="{{ stroke_color }}" fill="none" stroke-width="5" clip-path="url(#wheels)" />
+	{{/attr}}
 
-	{{#if two_wheels}}
-	<ellipse cx="40" cy="196" rx="10" ry="10" stroke="{{ stroke_color }}" fill="none" stroke-width="5" clip-path="url(#wheels)" />
-	<ellipse cx="216" cy="196" rx="10" ry="10" stroke="{{ stroke_color }}" fill="none" stroke-width="5" clip-path="url(#wheels)" />
-	{{/if}}
+	{{#attr "roadonly"}}
+	<ellipse cx="40"  cy="200" rx="10" ry="10" stroke="{{ stroke_color }}" fill="none" stroke-width="5" clip-path="url(#wheels)" />
+	<ellipse cx="216" cy="200" rx="10" ry="10" stroke="{{ stroke_color }}" fill="none" stroke-width="5" clip-path="url(#wheels)" />
+	{{/attr}}
 
-	{{#if tracks}}
+	{{#attr "tracks"}}
 	<path d="M24,195 l208,0 a10,10 180 0 1 0,20 l-208,0 a10,10 180 0 1 0,-20 Z" stroke="#000000" fill="none" stroke-width="5" />
-	{{/if}}
+	{{/attr}}
 
-	{{#if rail}}
+	{{#attr "rail"}}
 	<ellipse cx="24" cy="205" rx="10" ry="10" stroke="#000000" fill="none" stroke-width="5" />
 	<ellipse cx="50" cy="205" rx="10" ry="10" stroke="#000000" fill="none" stroke-width="5" />
 	<ellipse cx="206" cy="205" rx="10" ry="10" stroke="#000000" fill="none" stroke-width="5" />
 	<ellipse cx="232" cy="205" rx="10" ry="10" stroke="#000000" fill="none" stroke-width="5" />
-	{{/if}}
+	{{/attr}}
 	
-	{{#if container}}
+	{{#attr "container"}}
 	<ellipse cx="8" cy="80" rx="5" ry="5" stroke="#000000" fill="none" stroke-width="5" clip-path="url(#hook)" />
-	{{/if}}
+	{{/attr}}
 
-	{{#if trailer}}
+	{{#attr "trailer"}}
 	<rect x="0" y="120.5" width="10" height="15" />
-	{{/if}}
+	{{/attr}}
 
 	{{#if arzt}}
 	<path d="M108,160 l40,0" fill="none" stroke-width="5" stroke="{{ stroke_color }}" />
@@ -133,12 +133,12 @@
 
 	{{#if rettungswesen}}
 	<path d="M10,128 l236,0 M128,192 l0,-110" fill="none" stroke-width="5" stroke="{{ stroke_color }}" />
-	<text font-family="Roboto Slab Bold" font-size="200%" fill="{{ color_text }}" dominant-baseline="text-before-edge" text-anchor="start" x="22" y="85">{{ unit }}</text>
+	<text font-family="Roboto Slab Bold" font-size="200%" fill="{{ color_text }}" dominant-baseline="text-before-edge" text-anchor="start" x="22" y="85">{{ label }}</text>
 	{{else}}
 	{{#if loeschfahrzeug}}
-	<text font-family="Roboto Slab Bold" font-size="150%" fill="{{ color_text }}" dominant-baseline="text-before-edge" text-anchor="start" x="22" y="95">{{ unit }}</text>
+	<text font-family="Roboto Slab Bold" font-size="150%" fill="{{ color_text }}" dominant-baseline="text-before-edge" text-anchor="start" x="22" y="95">{{ label }}</text>
 	{{else}}
-	<text font-family="Roboto Slab Bold" font-size="300%" fill="{{ color_text }}" dominant-baseline="central" text-anchor="middle" x="128" y="128">{{ unit }}</text>
+	<text font-family="Roboto Slab Bold" font-size="300%" fill="{{ color_text }}" dominant-baseline="central" text-anchor="middle" x="128" y="128">{{ label }}</text>
 	{{/if}}
 	{{/if}}
 

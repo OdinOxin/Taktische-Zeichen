@@ -3,6 +3,472 @@
 	],
 	"sets": [
 		{
+			"name": "THW Einheiten",
+			"color_primary": "#120A8F",
+			"color_secondary": "#FFFFFF",
+			"stroke_color": "#000000",
+			"color_text": "#FFFFFF",
+			"organization": "THW",
+			"symbols": [
+				{
+					"name": "1. Bergungsgruppe",
+					"template": "Einheit.svg",
+					"unit": "B 1",
+					"variants": { "group": "1. Bergungsgruppe" }
+				},
+				{
+					"name": "2. Bergungsgruppe",
+					"template": "Einheit.svg",
+					"unit": "B 2",
+					"variants": { "group": "2. Bergungsgruppe" }
+				},
+				{		
+					"name": "FGr Beleuchtung",
+					"template": "Einheit.svg",
+					"unit": "Bel",
+					"variants": { "group": "FGr Beleuchtung" }
+				},
+				{
+					"name": "FGr Brückenbau",
+					"template": "Einheit.svg",
+					"unit": "BrB",
+					"variants": { "group": "FGr Brückenbau" }
+				},
+				{
+					"name": "FGr Elektroversorgung",
+					"template": "Einheit.svg",
+					"unit": "E",
+					"variants": { "group": "FGr Elektroversorgung" }
+				},
+				{
+					"name": "FGr FK - Fernmeldetrupp",
+					"template": "Einheit.svg",
+					"unit": "Fm",
+					"variants": { "squad": "FGr FK - Fernmeldetrupp" }
+				},
+				{
+					"name": "FGr Führung-Kommunikation A",
+					"template": "Einheit.svg",
+					"unit": "FK",
+					"variants": { "group": "FGr Führung-Kommunikation A" },
+					"denominator": "A"
+				},
+				{
+					"name": "FGr Führung-Kommunikation B",
+					"template": "Einheit.svg",
+					"unit": "FK",
+					"variants": { "group": "FGr Führung-Kommunikation B" },
+					"denominator": "B"
+				},
+				{
+					"name": "FGr Infrastruktur",
+					"template": "Einheit.svg",
+					"unit": "I",
+					"variants": { "group": "FGr Infrastruktur" }
+				},
+				{
+					"name": "FGr Ölschaden A",
+					"template": "Einheit.svg",
+					"unit": "Öl",
+					"variants": { "group": "FGr Ölschaden A" },
+					"denominator": "A"
+				},
+				{
+					"name": "FGr Ölschaden B",
+					"template": "Einheit.svg",
+					"unit": "Öl",
+					"variants": { "group": "FGr Ölschaden B" },
+					"denominator": "B"
+				},
+				{
+					"name": "FGr Ölschaden C",
+					"template": "Einheit.svg",
+					"unit": "Öl",
+					"variants": { "group": "FGr Ölschaden C" },
+					"denominator": "C"
+				},
+				{
+					"name": "FGr Ortung biologisch",
+					"template": "Einheit.svg",
+					"unit": "O",
+					"variants": { "group": "FGr Ortung biologisch" },
+					"denominator": "A"
+				},
+				{
+					"name": "FGr Ölschaden technisch",
+					"template": "Einheit.svg",
+					"unit": "O",
+					"variants": { "group": "FGr Ortung technisch" },
+					"denominator": "B"
+				},
+				{
+					"name": "FGr Räumen A",
+					"template": "Einheit.svg",
+					"unit": "R",
+					"variants": { "group": "FGr Räumen A" },
+					"denominator": "A"
+				},
+				{
+					"name": "FGr Räumen B",
+					"template": "Einheit.svg",
+					"unit": "R",
+					"variants": { "group": "FGr Räumen B" },
+					"denominator": "B"
+				},
+				{
+					"name": "FGr Sprengen",
+					"template": "Einheit.svg",
+					"unit": "Sp",
+					"variants": { "group": "FGr Sprengen" }
+				},
+				{
+					"name": "FGr Trinkwasser",
+					"template": "Einheit.svg",
+					"unit": "TW",
+					"variants": { "group": "FGr Trinkwasser" }
+				},
+				{
+					"name": "FGr Wassergefahren A",
+					"template": "Einheit.svg",
+					"unit": "W",
+					"variants": { "group": "FGr Wassergefahren A" },
+					"denominator": "A"
+				},
+				{
+					"name": "FGr Wassergefahren B",
+					"template": "Einheit.svg",
+					"unit": "W",
+					"variants": { "group": "FGr Wassergefahren B" },
+					"denominator": "B"
+				},
+				{
+					"name": "FGr Wasserschaden-Pumpen",
+					"template": "Einheit.svg",
+					"unit": "WP",
+					"variants": { "group": "FGr Wasserschaden-Pumpen" }
+				},
+				{
+					"name": "Technischer Zug mit FGr Infrastruktur",
+					"template": "Einheit.svg",
+					"unit": "TZ-I",
+					"variants": { "platoon": "Technischer Zug mit FGr Infrastruktur" }
+				},
+				{
+					"name": "Technischer Zug mit FGr Räumen",
+					"template": "Einheit.svg",
+					"unit": "TZ-R",
+					"variants": { "platoon": "Technischer Zug mit FGr Räumen" }
+				},
+				{
+					"name": "Technischer Zug mit FGr Trinkwasser",
+					"template": "Einheit.svg",
+					"unit": "TZ-TW",
+					"variants": { "platoon": "Technischer Zug mit FGr Trinkwasser" }
+				},
+				{
+					"name": "Technischer Zug",
+					"template": "Einheit.svg",
+					"unit": "TZ-",
+					"variants": { "platoon": "Technischer Zug" }
+				},
+				{
+					"name": "Zugtrupp",
+					"template": "Einheit.svg",
+					"unit": "TZ",
+					"variants": { "zugtrupp": "Zugtrupp" }
+				},
+				{
+					"name": "FGr Logistik - Führungstrupp",
+					"template": "Führungstrupp.svg",
+					"unit": "Log",
+					"variants": { "führungstrupp": "FGr Logistik - Führungstrupp" }
+				},
+				{
+					"name": "FGr FK - Führungs- und Kommunikationstrupp",
+					"template": "Führungstrupp.svg",
+					"unit": "FüKom",
+					"variants": { "führungstrupp": "FGr FK - Führungs- und Kommunikationstrupp" }
+				},
+				{
+					"name": "FGr FK - Führungstrupp",
+					"template": "Führungstrupp.svg",
+					"unit": "Fü",
+					"denominator": "A",
+					"variants": { "führungstrupp": "FGr FK - Führungstrupp" }
+				},
+				{
+					"name": "FGr Logistik - Materialerhaltungstrupp",
+					"template": "Versorgungstrupp.svg",
+					"unit": "Log-M",
+					"variants": { "versorgungstrupp": "FGr Logistik - Materialerhaltungstrupp" }
+				},
+				{
+					"name": "FGr Logistik - Versorgungstrupp",
+					"template": "Versorgungstrupp.svg",
+					"unit": "Log-V",
+					"variants": { "versorgungstrupp": "FGr Logistik - Versorgungstrupp" }
+				}
+			]
+		},
+		{
+			"name": "THW Personen",
+			"color_primary": "#120A8F",
+			"color_secondary": "#FFFFFF",
+			"stroke_color": "#000000",
+			"color_text": "#FFFFFF",
+			"organization": "THW",
+			"symbols": [
+				{
+					"name": "Zugführer",
+					"template": "Person.svg",
+					"unit": "TZ",
+					"variants": {
+						"zugführer_thw": "Zugführer"
+					}
+				},
+				{
+					"name": "Zugtruppführer",
+					"template": "Person.svg",
+					"unit": "TZ",
+					"variants": {
+						"zugtruppführer_thw": "Zugtruppführer"
+					}
+				},
+				{
+					"name": "Führungskräfte B 1",
+					"template": "Person.svg",
+					"unit": "B 1",
+					"variants": {
+						"gruppenführer_thw": "Gruppenführer B 1",
+						"truppführer_thw": "Truppführer B 1"
+					}
+				},
+				{
+					"name": "Führungskräfte B 2",
+					"template": "Person.svg",
+					"unit": "B 2",
+					"variants": {
+						"gruppenführer_thw": "Gruppenführer B 2",
+						"truppführer_thw": "Truppführer B 2"
+					}
+				},
+				{
+					"name": "Kraftfahrer",
+					"template": "Person.svg",
+					"unit": "KF",
+					"variants": {
+						"thw": "Kraftfahrer"
+					}
+				},
+				{
+					"name": "Helfer",
+					"template": "Person.svg",
+					"unit": "",
+					"variants": {
+						"thw": "Helfer"
+					}
+				}
+			]
+		},
+		{
+			"name": "THW Fahrzeuge",
+			"color_primary": "#120A8F",
+			"color_secondary": "#FFFFFF",
+			"stroke_color": "#000000",
+			"color_text": "#FFFFFF",
+			"organization": "THW",
+			"symbols": [
+				{
+					"name": "Anhänger - Lichtmast",
+					"template": "Anhänger.svg",
+					"unit": "LiMa",
+					"variants": { "anhänger": "Anhänger - Lichtmast" }
+				},
+				{
+					"name": "Anhänger - Netzersatzanlage",
+					"template": "Anhänger.svg",
+					"unit": "NEA",
+					"variants": { "anhänger": "Anhänger - Netzersatzanlage" }
+				},
+				{
+					"name": "Anhänger - Stromerzeuger",
+					"template": "Anhänger.svg",
+					"unit": "SEA",
+					"variants": { "anhänger": "Anhänger - Stromerzeuger" }
+				},
+				{
+					"name": "Anhänger - Werkstatt",
+					"template": "Anhänger.svg",
+					"unit": "Wkst",
+					"variants": { "anhänger": "Anhänger - Werkstatt" }
+				},
+				{
+					"name": "Bergungsräumgerät",
+					"template": "Fahrzeug.svg",
+					"unit": "BRmG",
+					"variants": { "three_wheels": "Bergungsräumgerät" }
+				},
+				{
+					"name": "Führungskraftwagen",
+					"template": "Fahrzeug.svg",
+					"unit": "FüKW",
+					"variants": { "two_wheels": "Führungskraftwagen" }
+				},
+				{
+					"name": "GKW I",
+					"template": "Fahrzeug.svg",
+					"unit": "GKW I",
+					"variants": { "three_wheels": "GKW I" }
+				},
+				{
+					"name": "GKW II",
+					"template": "Fahrzeug.svg",
+					"unit": "GKW II",
+					"variants": { "three_wheels": "GKW II" }
+				},
+				{
+					"name": "Kipper",
+					"template": "Fahrzeug.svg",
+					"unit": "Kipper",
+					"variants": { "three_wheels": "Kipper" }
+				},
+				{
+					"name": "LKW - Ladekran",
+					"template": "Fahrzeug.svg",
+					"unit": "LKW-Lkr",
+					"variants": { "three_wheels": "LKW-Ladekran" }
+				},
+				{
+					"name": "LKW",
+					"template": "Fahrzeug.svg",
+					"unit": "LKW",
+					"variants": { "three_wheels": "LKW" }
+				},
+				{
+					"name": "MLW I",
+					"template": "Fahrzeug.svg",
+					"unit": "MLW I",
+					"variants": { "three_wheels": "MLW I" }
+				},
+				{
+					"name": "MLW II",
+					"template": "Fahrzeug.svg",
+					"unit": "MLW II",
+					"variants": { "three_wheels": "MLW II" }
+				},
+				{
+					"name": "MLW III",
+					"template": "Fahrzeug.svg",
+					"unit": "MLW III",
+					"variants": { "three_wheels": "MLW III" }
+				},
+				{
+					"name": "MLW IV",
+					"template": "Fahrzeug.svg",
+					"unit": "MLW IV",
+					"variants": { "three_wheels": "MLW IV" }
+				},
+				{
+					"name": "MLW V",
+					"template": "Fahrzeug.svg",
+					"unit": "MLW V",
+					"variants": { "three_wheels": "MLW V" }
+				},
+				{
+					"name": "MzKW",
+					"template": "Fahrzeug.svg",
+					"unit": "MzKW",
+					"variants": { "three_wheels": "MzKW" }
+				},
+				{
+					"name": "Personenkraftwagen",
+					"template": "Fahrzeug.svg",
+					"unit": "PKW-",
+					"variants": { "two_wheels": "Personenkraftwagen" }
+				},
+				{
+					"name": "MTW",
+					"template": "Fahrzeug.svg",
+					"unit": "MTW",
+					"variants": { "two_wheels": "MTW" }
+				},
+				{
+					"name": "Mehrzweckboot",
+					"template": "Wasserfahrzeug.svg",
+					"unit": "MZB",
+					"variants": { "mehrzweckboot": "Mehrzweckboot" }
+				},
+				{
+					"name": "Mehrzweckponton",
+					"template": "Wasserfahrzeug.svg",
+					"unit": "MZPt",
+					"variants": { "mehrzweckponton": "Mehrzweckponton" }
+				},
+				{
+					"name": "Wechselladerfahrzeug",
+					"template": "Wechselladerfahrzeug.svg",
+					"unit": "WLF",
+					"variants": { "wechselladerfahrzeug": "Wechselladerfahrzeug" }
+				}
+			]
+		},
+		{
+			"name": "THW Gebäude",
+			"color_primary": "#120A8F",
+			"color_secondary": "#FFFFFF",
+			"stroke_color": "#000000",
+			"color_text": "#FFFFFF",
+			"organization": "THW",
+			"symbols": [
+				{
+					"name": "Leitung",
+					"template": "Gebäude.svg",
+					"unit": "Ltg",
+					"variants": { "gebäude": "Leitung" }
+				},
+				{
+					"name": "Bundesschule",
+					"template": "Gebäude.svg",
+					"unit": "BuS",
+					"variants": { "gebäude": "Bundesschule" }
+				},
+				{
+					"name": "Landesverband",
+					"template": "Gebäude.svg",
+					"unit": "LV",
+					"variants": { "gebäude": "Landesverband" }
+				},
+				{
+					"name": "Geschäftsstelle",
+					"template": "Gebäude.svg",
+					"unit": "GSt",
+					"variants": { "gebäude": "Geschäftsstelle" }
+				},
+				{
+					"name": "Unterkunft OV",
+					"template": "Gebäude.svg",
+					"unit": "OV",
+					"variants": { "gebäude": "Unterkunft OV" }
+				}
+			]
+		},
+		{
+			"name": "Feuerwehr Gebäude",
+			"color_primary": "#FF0000",
+			"color_secondary": "#FFFFFF",
+			"stroke_color": "#000000",
+			"color_text": "#FFFFFF",
+			"organization": "",
+			"symbols": [
+				{
+					"name": "Feuerwehrgerätehaus",
+					"template": "Gebäude.svg",
+					"unit": "Fw",
+					"variants": { "gebäude": "Feuerwehrgerätehaus" }
+				}
+			]
+		},
+		{
 			"name": "Rettungswesen Personen",
 			"color_primary": "#FFFFFF",
 			"color_secondary": "#000000",
@@ -505,6 +971,23 @@
 					"template": "Dekontaminationsgruppe.svg",
 					"variants": {
 						"abc_zug": "Gefahrstoffzug - ABC-Zug"
+					}
+				}
+			]
+		},
+		{
+			"name": "Feuerwehr Personen",
+			"color_primary": "#FF0000",
+			"color_secondary": "#FFFFFF",
+			"stroke_color": "#000000",
+			"color_text": "#FFFFFF",
+			"organization": "",
+			"symbols": [
+				{
+					"name": "Zugführer Löschzug",
+					"template": "Person.svg",
+					"variants": {
+						"zugführer_löschzug": "Zugführer Löschzug"
 					}
 				}
 			]
