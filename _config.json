@@ -524,25 +524,6 @@
 		{	"name": "Personen",
 			"symbols": [
 				{
-					"name": "Person",
-					"template": "Person.svg",
-					"color_primary": "#FFFFFF",
-					"color_secondary": "none",
-					"stroke_width": "5",
-					"stroke_color": "#000000",
-					"variants": {
-						"missing": "Vermisste Person",
-						"spilled": "Verschüttete Person",
-						"hurt": "Verletzte Person",
-						"dead": "Tote Person",
-						"to_be_moved": "Zu transportierende Person",
-						"moved": "Transportierte Person",
-						"saved": "Gerettete Person",
-						"special_function": "Person mit Sonderfunktion",
-						"person": "Person"
-					}
-				},
-				{
 					"name": "Einsatzleiter",
 					"template": "Person.svg",
 					"color_primary": "#FFFF00",
