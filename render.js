@@ -119,11 +119,53 @@ function createSVGs() {
 
 	var fonts = config.fonts;
 	
+	Handlebars.registerHelper('ifCond', function (v1, operator, v2, options) {
+		switch (operator) {
+			case '==':
+				return (v1 == v2) ? options.fn(this) : options.inverse(this);
+			case '===':
+				return (v1 === v2) ? options.fn(this) : options.inverse(this);
+			case '!=':
+				return (v1 != v2) ? options.fn(this) : options.inverse(this);
+			case '!==':
+				return (v1 !== v2) ? options.fn(this) : options.inverse(this);
+			case '<':
+				return (v1 < v2) ? options.fn(this) : options.inverse(this);
+			case '<=':
+				return (v1 <= v2) ? options.fn(this) : options.inverse(this);
+			case '>':
+				return (v1 > v2) ? options.fn(this) : options.inverse(this);
+			case '>=':
+				return (v1 >= v2) ? options.fn(this) : options.inverse(this);
+			case '&&':
+				return (v1 && v2) ? options.fn(this) : options.inverse(this);
+			case '||':
+				return (v1 || v2) ? options.fn(this) : options.inverse(this);
+			default:
+				return options.inverse(this);
+		}
+	});
+	
 	Handlebars.registerHelper('attr', function(item, options) {
 		if(this.attr != undefined && this.attr.indexOf(item) > -1)
 			return options.fn(this);
 		return options.inverse(this);
     });
+	
+	Handlebars.registerHelper('attrCond', function (v1, operator, v2, options) {
+		if(this.attr != undefined)
+			switch (operator) {
+				case '&&':
+					if(this.attr.indexOf(v1) > -1 && this.attr.indexOf(v2) > -1)
+						return options.fn(this);
+					break;
+				case '||':
+					if(this.attr.indexOf(v1) > -1 || this.attr.indexOf(v2) > -1)
+						return options.fn(this);
+					break;
+			}
+		return options.inverse(this);
+	});
 
 	console.log("Creating " + config.sets.length + " SVG-Set(s)...");
 	for(var i = 0; i < config.sets.length; i++) {

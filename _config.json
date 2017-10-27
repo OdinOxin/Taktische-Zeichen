@@ -448,36 +448,6 @@
 			"organization": "",
 			"symbols": [
 				{
-					"name": "Löschzug - Berufsfeuerwehr",
-					"template": "Löschzug.svg",
-					"organization": "BF",
-					"variants": { "löschzug": "Löschzug - Berufsfeuerwehr" }
-				},
-				{
-					"name": "Löschzug - Freiwillige Feuerwehr",
-					"template": "Löschzug.svg",
-					"organization": "FF",
-					"variants": { "löschzug": "Löschzug - Freiwillige Feuerwehr" }
-				},
-				{
-					"name": "Löschzug - Wasser",
-					"template": "Löschzug.svg",
-					"organization": "W",
-					"variants": { "löschzug": "Löschzug - Wasser" }
-				},
-				{
-					"name": "Löschzug - Werksfeuerwehr",
-					"template": "Löschzug.svg",
-					"organization": "WF",
-					"variants": { "löschzug": "Löschzug - Werksfeuerwehr" }
-				},
-				{
-					"name": "Löschzug",
-					"template": "Löschzug.svg",
-					"organization": "",
-					"variants": { "löschzug": "Löschzug" }
-				},
-				{
 					"name": "Dekontaminationsgruppe",
 					"template": "Dekontaminationsgruppe.svg",
 					"denominator": "G",

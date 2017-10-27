@@ -310,12 +310,12 @@
 				{	"name":	"Einheiten",
 					"template": "Einheit.svg",
 					"symbols": [
-						{	"filename": "LZ",		"organization": "",		"attr": [ "löschzug" ] },
-						{	"filename": "LZ_FW", 							"attr": [ "löschzug" ] },
-						{	"filename": "LZ_BF",	"organization": "BF",	"attr": [ "löschzug" ] },
-						{	"filename": "LZ_FF",	"organization": "FF",	"attr": [ "löschzug" ] },
-						{	"filename": "LZ_WF",	"organization": "WF",	"attr": [ "löschzug" ] },
-						{	"filename": "LZ_W",		"organization": "W",	"attr": [ "löschzug" ] },
+						{	"filename": "LZ",						"attr": [ "platoon", "löschzug" ] },
+						{	"filename": "LZ_FW", 	"label": "FW",	"attr": [ "platoon", "löschzug" ] },
+						{	"filename": "LZ_BF",	"label": "BF",	"attr": [ "platoon", "löschzug" ] },
+						{	"filename": "LZ_FF",	"label": "FF",	"attr": [ "platoon", "löschzug" ] },
+						{	"filename": "LZ_WF",	"label": "WF",	"attr": [ "platoon", "löschzug" ] },
+						{	"filename": "LZ_W",		"label": "W",	"attr": [ "platoon", "löschzug" ] },
 						
 						{}
 					]
@@ -325,12 +325,12 @@
 					"symbols": [
 						{	"filename": "LZF",
 							"attr": [
-								"platoon"
+								"platoon", "löschzug"
 							]
 						},
 						{	"filename": "LZFü",
 							"attr": [
-								"platoon"
+								"platoon", "löschzug"
 							]
 						},
 						
@@ -345,9 +345,6 @@
 						{}
 					]
 				}
-			],
-			"attr": [
-				"löschzug"
 			]
 		}
 	]
