@@ -10,13 +10,15 @@ var Handlebars = require('handlebars');
 var action = "create-svgs"
 var config = JSON.parse(fs.readFileSync(process.argv[2]));
 
+var logDepth = 0;
+
 if(process.argv.length == 4) {
 	action = process.argv[3];
 }
 
 switch(action) {
 	case "create-svgs":
-		createSVGs();
+		createAllSets();
 		break;
 	case "render-all":
 		renderAll();
@@ -112,7 +114,7 @@ function renderAll() {
 		});
 }
 
-function createSVGs() {
+function createAllSets() {
 	if (!fs.existsSync(path.join(__dirname, "symbols"))) {
 		fs.mkdirSync(path.join(__dirname, "symbols"));
 	}
@@ -167,22 +169,32 @@ function createSVGs() {
 		return options.inverse(this);
 	});
 
-	console.log("Creating " + config.sets.length + " SVG-Set(s)...");
+	println("Creating " + config.sets.length + " Set(s)...");
 	for(var i = 0; i < config.sets.length; i++) {
 		var set = config.sets[i];
 		set.path = path.join(__dirname, 'symbols');
-		createSVGSet(set);
+		createSet(set);
 	}
 }
 
-function copySetAttributes(src, dest) {
+function println(msg) {
+	var indent = "";
+	for(var i = 0; i < logDepth; i++)
+		indent += "\t";
+	console.log(indent + msg);
+}
+
+function copySetAttributes(dest, src, withSubsets, withSubsetvariants, withSymbols) {
 	for(var key in src) {
-		if(key === "subsets" || key === "symbols") {
+		if(key === "subsetvariants" && !withSubsetvariants)
 			continue;
-		}
+		if(key === "subsets" && !withSubsets)
+			continue;
+		if(key === "symbols" && !withSymbols)
+			continue;
 		if(key === "attr" && dest[key] !== undefined) {
 			for(var item in src[key])
-				dest[key].push(src[key][item]);
+				dest[key].push(src[key][item]); // Sum attributes
 			continue;
 		}
 		if(dest[key] === undefined) // If not already specialized in child...
@@ -190,87 +202,73 @@ function copySetAttributes(src, dest) {
 	}
 }
 
-function createSVGSet(set) {
-	console.log("Creating SVG Set: '" + set.name + "'...");
+function createSet(set) {
+	logDepth++;
+	println("Creating Set: '" + set.name + "'...");
 	
 	set.path = path.join(set.path, set.name);
 	if(!fs.existsSync(set.path)) {
 		fs.mkdirSync(set.path);
 	}
-
+	
 	createSymbols(set);
-	if(set.subsets !== undefined)
-		for(var i = 0; i < set.subsets.length; i++) {
-			var subset = set.subsets[i];
-			copySetAttributes(set, subset);
-			createSVGSet(subset);
+	if(set.subsets !== undefined) {
+		if(set.subsetvariants === undefined)
+			set.subsetvariants = [ { "name": "" } ];
+		println("Creating " + set.subsets.length + " subsets à " + set.subsetvariants.length + " variants...");
+		for(var i = 0; i < set.subsetvariants.length; i++) {
+			println("Variant: " + set.subsetvariants[i].name);
+			for(var j = 0; j < set.subsets.length; j++) {
+				var variant = {};
+				copySetAttributes(variant, set.subsets[j], true, true, true);
+				variant.path = path.join(set.path, set.subsetvariants[i].name);
+				if(!fs.existsSync(variant.path)) {
+					fs.mkdirSync(variant.path);
+				}
+				copySetAttributes(variant, set.subsetvariants[i], false, false, true);
+				copySetAttributes(variant, set, false, false, false);
+				createSet(variant);
+			}
 		}
-	console.log("Created SVG Set: '" + set.name + "'.");
+	}
+	logDepth--;
 }
 
 function createSymbols(set) {
 	if(set.symbols === undefined)
 		return;
-	
-	console.log("Creating " + set.symbols.length + " symbol(s)...");
+	logDepth++;
+	println("Creating " + set.symbols.length + " symbol(s)...");
+	logDepth++;
 	for(var x = 0; x < set.symbols.length; x++) {
-		var symbol = set.symbols[x];
-		console.log((x+1) + ".\t" + symbol.filename);
-		copySetAttributes(set, symbol);
-		//console.log("\tSymbol (JSON): " + JSON.stringify(symbol));
-		
+		var symbol = {};
+		copySetAttributes(symbol, set.symbols[x], false, false, false);
+		println((x+1) + ".\t" + symbol.filename);
+		logDepth++;
+		copySetAttributes(symbol, set, false, false, false);
 		if(symbol.template === undefined) {
-			console.log("\tNo Template set for " + symbol.filename);
+			println("No Template set for " + symbol.filename);
 			continue;
 		}
-		console.log("\tTemplate: " + symbol.template);
-		console.log("\tAttributes: " + symbol.attr);
-
+		println("Template: " + symbol.template);
 		var template = fs.readFileSync(path.join(__dirname, "templates", symbol.template), { encoding: "utf8" });
 		template = Handlebars.compile(template);
-
-		if(symbol.variantmatrix !== undefined) {
-			var indices = [];
-			for(var i = 0; i < symbol.variantmatrix.length; i++)
-				indices.push(0);
-			rek(template, symbol, symbol, indices, 0);
-		}
-		else
-			createVariant(template, symbol);
+		createSymbol(template, symbol);
+		logDepth--;
 	}
+	logDepth--;
+	logDepth--;
 }
 
-function rek(template, symbol, inputSymbol, indices, i) {
-	for(indices[i] = 0; indices[i] < symbol.variantmatrix[i].variants.length; indices[i]++) {
-		var tmpSymbol = {};
-		copySetAttributes(symbol.variantmatrix[i].variants[indices[i]], tmpSymbol);
-		copySetAttributes(inputSymbol, tmpSymbol);
-		if(i < indices.length - 1) {
-			if(symbol.variantmatrix[i].variants[indices[i]].name !== "" && symbol.variantmatrix[i].variants[indices[i]].name !== undefined) {
-				tmpSymbol.path = path.join(tmpSymbol.path, symbol.variantmatrix[i].variants[indices[i]].name);
-				if(!fs.existsSync(tmpSymbol.path)) {
-					fs.mkdirSync(tmpSymbol.path);
-				}
-			}
-			rek(template, symbol, tmpSymbol, indices, i+1);
-		}
-		else {
-			if(symbol.variantmatrix[i].variants[indices[i]].name !== "" && symbol.variantmatrix[i].variants[indices[i]].name !== undefined)
-				tmpSymbol.filename += "_" + symbol.variantmatrix[i].variants[indices[i]].name;
-			createVariant(template, tmpSymbol);
-		}
-	}
-}
-
-function createVariant(template, symbol) {
+function createSymbol(template, symbol) {
 	if(symbol.filename === undefined) {
-		console.log("\tFilename not set.");
+		println("Filename not set.");
 		return;
 	}
-	console.log("\tGenerating symbol (variant): '" + symbol.filename + ".svg'...");
+	var finalPath = path.join(symbol.path, symbol.filename + ".svg");
+	println("Generating symbol: '" + symbol.filename + ".svg' (" + finalPath + ")...");
+	println("Attributes: " + symbol.attr);
 	var compiled_symbol = template(symbol);
 	compiled_symbol = compiled_symbol.replace(/^\s*[\r\n]/gm, "");
-	//var finalPath = path.join(__dirname, "symbols");
-	var finalPath = symbol.path;
-	fs.writeFileSync(path.join(finalPath, symbol.filename + ".svg"), compiled_symbol);
+	fs.writeFileSync(finalPath, compiled_symbol);
 }

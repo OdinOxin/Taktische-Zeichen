@@ -77,26 +77,24 @@
 				{	"name": "Gefahren",
 					"color_primary": "#FF0000",
 					"template": "Gefahr.svg",
-					"symbols": [
-						{	"filename": "Gefahr",
-							"variantmatrix": [
-								{ "variants": [
-										{ "name": "" },
-										{ "name": "Akut",		"denominator": "!"},
-										{ "name": "Vermutet",	"denominator": "?"}
-								] },
-								{ "variants": [
-										{ "name": "" },
-										{ "name": "Explosion",		"attr": [ "explosion" ] },
-										{ "name": "Öl", 			"attr": [ "oil" ] },
-										{ "name": "Radioaktivität",	"attr": [ "radioactivity" ] },
-										{ "name": "Elektrizität", 	"attr": [ "electricity" ] },
-										{ "name": "Explosives", 	"attr": [ "explosives" ] },
-										{ "name": "Stoffe", 		"attr": [ "hazardous_materials" ] },
-										{ "name": "Luftmangel",		"attr": [ "suffocation" ] },
-										{ "name": "Gas", 			"attr": [ "gas" ] },
-										{ "name": "Wassereinbruch",	"attr": [ "water_ingress" ], "color_primary": "#003399" }
-								] }
+					"subsetvariants": [
+						{ "name": "" },
+						{ "name": "Akut", "denominator": "!" },
+						{ "name": "Vermutet", "denominator": "?" }
+					],
+					"subsets": [
+						{	"name": "",
+							"symbols": [
+									{ "filename": "Gefahr" },
+									{ "filename": "Explosion",		"attr": [ "explosion" ] },
+									{ "filename": "Öl", 			"attr": [ "oil" ] },
+									{ "filename": "Radioaktivität",	"attr": [ "radioactivity" ] },
+									{ "filename": "Elektrizität", 	"attr": [ "electricity" ] },
+									{ "filename": "Explosives", 	"attr": [ "explosives" ] },
+									{ "filename": "Stoffe", 		"attr": [ "hazardous_materials" ] },
+									{ "filename": "Luftmangel",		"attr": [ "suffocation" ] },
+									{ "filename": "Gas", 			"attr": [ "gas" ] },
+									{ "filename": "Wassereinbruch",	"attr": [ "water_ingress" ], "color_primary": "#003399" }
 							]
 						}
 					]
@@ -222,33 +220,32 @@
 				{	"name": "Funktionsträger",
 					"template": "Person.svg",
 					"symbols": [
-						{ "variantmatrix": [
-								{ "variants": [
-									{ "name": "TZ",		"label": "TZ" },
-									{ "name": "Bel",	"label": "Bel", "font_size": "250%" },
-									{ "name": "BrB",	"label": "BrB", "font_size": "250%" },
-									{ "name": "E",		"label": "E" },
-									{ "name": "I",		"label": "I" },
-									{ "name": "Öl",		"label": "Öl" },
-									{ "name": "O",		"label": "O" },
-									{ "name": "R",		"label": "R" },
-									{ "name": "Sp",		"label": "Sp" },
-									{ "name": "TW",		"label": "TW", "font_size": "250%" },
-									{ "name": "W",		"label": "W" },
-									{ "name": "WP",		"label": "WP", "font_size": "250%" }
-								] },
-								{ "variants": [
-									{ "filename": "GrFü", "attr": [ "group" ] },
-									{ "filename": "TrFü", "attr": [ "troop" ] },
-									{ "filename": "FaHe" }
-								] }
-							]
-						},
 						{ "filename": "Blanko" },
 						{ "filename": "FaHe",	"label": "FaHe", "font_size": "200%" },
 						{ "filename": "KF",		"label": "KF" }
 					],
 					"subsets": [
+						{	"name": "",
+							"subsetvariants": [
+									{ "name": "", "symbols": [ { "filename": "GrFü", "attr": [ "group" ] } ] },
+									{ "name": "", "symbols": [ { "filename": "TrFü", "attr": [ "troop" ] } ] },
+									{ "name": "", "symbols": [ { "filename": "FaHe" } ]  }
+							],
+							"subsets": [
+								{ "name": "TZ",		"label": "TZ" },
+								{ "name": "Bel",	"label": "Bel", "font_size": "250%" },
+								{ "name": "BrB",	"label": "BrB", "font_size": "250%" },
+								{ "name": "E",		"label": "E" },
+								{ "name": "I",		"label": "I" },
+								{ "name": "Öl",		"label": "Öl" },
+								{ "name": "O",		"label": "O" },
+								{ "name": "R",		"label": "R" },
+								{ "name": "Sp",		"label": "Sp" },
+								{ "name": "TW",		"label": "TW", "font_size": "250%" },
+								{ "name": "W",		"label": "W" },
+								{ "name": "WP",		"label": "WP", "font_size": "250%" }
+							]
+						},
 						{	"name": "TZ",
 							"label": "TZ",
 							"symbols": [
@@ -292,7 +289,8 @@
 							"template": "Wasserfahrzeug.svg",
 							"symbols": [
 								{	"filename": "Blanko"},
-								{	"filename": "MZB",		"label": "MZB"},
+								{	"filename": "MzB",		"label": "MzB"},
+								{	"filename": "MzAB",		"label": "MzAB"},
 								{	"filename": "MZPt",		"label": "MZPt"},
 								{	"filename": "SchlB",	"label": "SchlB"}
 							]
@@ -385,22 +383,24 @@
 			"color_secondary": "#FFFFFF",
 			"stroke_color": "#000000",
 			"color_text": "#FFFFFF",
-			"organization": "FW",
+			"subsetvariants": [
+				{ "name": ""},
+				{ "name": "FW", "organization": "FW" },
+				{ "name": "BF", "organization": "BF" },
+				{ "name": "FF", "organization": "FF" },
+				{ "name": "WF", "organization": "WF" }
+			],
 			"subsets": [
 				{	"name":	"Einheiten",
 					"template": "Einheit.svg",
 					"symbols": [
-						{	"filename": "LZ",								"attr": [ "platoon", "extinguish" ] },
-						{	"filename": "LZ_FW", 	"label": "FW",			"attr": [ "platoon", "extinguish" ] },
-						{	"filename": "LZ_BF",	"label": "BF",			"attr": [ "platoon", "extinguish" ] },
-						{	"filename": "LZ_FF",	"label": "FF",			"attr": [ "platoon", "extinguish" ] },
-						{	"filename": "LZ_WF",	"label": "WF",			"attr": [ "platoon", "extinguish" ] },
-						{	"filename": "LZ_W",		"label": "W",			"attr": [ "platoon", "extinguish" ] },
-						{	"filename": "LöschGr",							"attr": [ "group", "extinguish" ] },
-						{	"filename": "ABC_Zug", 							"attr": [ "platoon", "abc" ] },
-						{	"filename": "ABC_ErkundungsGr",					"attr": [ "group", "abc", "survey" ] },
-						{	"filename": "DekonGr_Personen",					"attr": [ "group", "decon" ], "denominator": "P" },
-						{	"filename": "DekonGr_Gerät",					"attr": [ "group", "decon" ], "denominator": "G" }
+						{	"filename": "LZ",						"attr": [ "platoon", "extinguish" ] },
+						{	"filename": "LZ_W",		"label": "W",	"attr": [ "platoon", "extinguish" ] },
+						{	"filename": "LöschGr",					"attr": [ "group", "extinguish" ] },
+						{	"filename": "ABC_Zug", 					"attr": [ "platoon", "abc" ] },
+						{	"filename": "ABC_ErkundungsGr",			"attr": [ "group", "abc", "survey" ] },
+						{	"filename": "DekonGr_Personen",			"attr": [ "group", "decon" ], "denominator": "P" },
+						{	"filename": "DekonGr_Gerät",			"attr": [ "group", "decon" ], "denominator": "G" }
 					]
 				},
 				{	"name": "Funktionsträger",
@@ -408,12 +408,12 @@
 					"symbols": [
 						{	"filename": "LZF",
 							"attr": [
-								"platoon", "löschzug"
+								"platoon", "extinguish"
 							]
 						},
 						{	"filename": "LZFü",
 							"attr": [
-								"platoon", "löschzug"
+								"platoon", "extinguish"
 							]
 						}
 					]

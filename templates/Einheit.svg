@@ -93,11 +93,13 @@
 	<text fill="{{ color_text }}" font-family="Roboto Slab Bold" dominant-baseline="text-before-edge" font-size="200%" text-anchor="start" x="22" y="70">{{ label }}</text>
 	{{/if}}
 	-->
-	{{#attr "extinguish"}}
-	<text x="22" y="100" alignment-baseline="before-edge" font-size="200%" font-family="Roboto Slab Bold" fill="{{ color_text }}">{{ label }}</text>
-	{{else}}
-	<text font-size="300%" fill="{{ color_text }}" font-family="Roboto Slab Bold" dominant-baseline="central" text-anchor="middle" x="128" y="128">{{ label }}</text>
-	{{/attr}}
+	{{#if label}}
+		{{#attr "extinguish"}}
+		<text x="22" y="100" alignment-baseline="before-edge" font-size="200%" font-family="Roboto Slab Bold" fill="{{ color_text }}">{{ label }}</text>
+		{{else}}
+		<text font-size="300%" fill="{{ color_text }}" font-family="Roboto Slab Bold" dominant-baseline="central" text-anchor="middle" x="128" y="128">{{ label }}</text>
+		{{/attr}}
+	{{/if}}
 
 	{{#if denominator}}
 		{{#attr "decon"}}
@@ -108,11 +110,14 @@
 	{{/if}}
 
 	{{#if organization}}
-	{{#attr "extinguish"}}
-		{{! Do not print organization in this case }}
-	{{else}}
-	<text fill="{{ color_text }}" font-family="Roboto Slab Bold"  text-anchor="end" x="236" y="180">{{ organization }}</text>
-	{{/attr}}
+		{{#attr "extinguish"}}
+			{{#if label}}
+			{{else}}
+			<text x="22" y="100" alignment-baseline="before-edge" font-size="200%" font-family="Roboto Slab Bold" fill="{{ color_text }}">{{ organization }}</text>
+			{{/if}}
+		{{else}}
+		<text fill="{{ color_text }}" font-family="Roboto Slab Bold"  text-anchor="end" x="236" y="180">{{ organization }}</text>
+		{{/attr}}
 	{{/if}}
 
 	<!--
