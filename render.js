@@ -215,8 +215,6 @@ function createSymbols(set) {
 	console.log("Creating " + set.symbols.length + " symbol(s)...");
 	for(var x = 0; x < set.symbols.length; x++) {
 		var symbol = set.symbols[x];
-		if(symbol.filename === undefined)
-			continue;
 		console.log((x+1) + ".\t" + symbol.filename);
 		copySetAttributes(set, symbol);
 		//console.log("\tSymbol (JSON): " + JSON.stringify(symbol));
@@ -248,7 +246,7 @@ function rek(template, symbol, inputSymbol, indices, i) {
 		copySetAttributes(symbol.variantmatrix[i].variants[indices[i]], tmpSymbol);
 		copySetAttributes(inputSymbol, tmpSymbol);
 		if(i < indices.length - 1) {
-			if(symbol.variantmatrix[i].variants[indices[i]].name !== "") {
+			if(symbol.variantmatrix[i].variants[indices[i]].name !== "" && symbol.variantmatrix[i].variants[indices[i]].name !== undefined) {
 				tmpSymbol.path = path.join(tmpSymbol.path, symbol.variantmatrix[i].variants[indices[i]].name);
 				if(!fs.existsSync(tmpSymbol.path)) {
 					fs.mkdirSync(tmpSymbol.path);
@@ -257,7 +255,7 @@ function rek(template, symbol, inputSymbol, indices, i) {
 			rek(template, symbol, tmpSymbol, indices, i+1);
 		}
 		else {
-			if(symbol.variantmatrix[i].variants[indices[i]].name !== "")
+			if(symbol.variantmatrix[i].variants[indices[i]].name !== "" && symbol.variantmatrix[i].variants[indices[i]].name !== undefined)
 				tmpSymbol.filename += "_" + symbol.variantmatrix[i].variants[indices[i]].name;
 			createVariant(template, tmpSymbol);
 		}
@@ -265,6 +263,10 @@ function rek(template, symbol, inputSymbol, indices, i) {
 }
 
 function createVariant(template, symbol) {
+	if(symbol.filename === undefined) {
+		console.log("\tFilename not set.");
+		return;
+	}
 	console.log("\tGenerating symbol (variant): '" + symbol.filename + ".svg'...");
 	var compiled_symbol = template(symbol);
 	compiled_symbol = compiled_symbol.replace(/^\s*[\r\n]/gm, "");

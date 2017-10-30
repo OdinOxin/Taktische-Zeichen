@@ -73,6 +73,48 @@
 							]
 						}
 					]
+				},
+				{	"name": "Gefahren",
+					"color_primary": "#FF0000",
+					"template": "Gefahr.svg",
+					"symbols": [
+						{	"filename": "Gefahr",
+							"variantmatrix": [
+								{ "variants": [
+										{ "name": "" },
+										{ "name": "Akut",		"denominator": "!"},
+										{ "name": "Vermutet",	"denominator": "?"}
+								] },
+								{ "variants": [
+										{ "name": "" },
+										{ "name": "Explosion",		"attr": [ "explosion" ] },
+										{ "name": "Öl", 			"attr": [ "oil" ] },
+										{ "name": "Radioaktivität",	"attr": [ "radioactivity" ] },
+										{ "name": "Elektrizität", 	"attr": [ "electricity" ] },
+										{ "name": "Explosives", 	"attr": [ "explosives" ] },
+										{ "name": "Stoffe", 		"attr": [ "hazardous_materials" ] },
+										{ "name": "Luftmangel",		"attr": [ "suffocation" ] },
+										{ "name": "Gas", 			"attr": [ "gas" ] },
+										{ "name": "Wassereinbruch",	"attr": [ "water_ingress" ], "color_primary": "#003399" }
+								] }
+							]
+						}
+					]
+				},
+				{	"name": "Maßnahmen",
+					"color_primary": "#000000",
+					"template": "Maßnahme.svg",
+					"symbols": [
+						{	"filename": "Maßnahme" },
+						{	"filename": "Betreuung", 		"attr": [ "care" ] },
+						{ 	"filename": "Erkunden",			"attr": [ "survey" ] },
+						{ 	"filename": "Beobachten",		"attr": [ "survey" ] },
+						{ 	"filename": "Brückenbau",		"attr": [ "bridge" ] },
+						{ 	"filename": "Dekontaminieren",	"attr": [ "decon" ] },
+						{ 	"filename": "Räumen",			"attr": [ "clear" ] },
+						{ 	"filename": "Sprengen",			"attr": [ "blast" ] },
+						{ 	"filename": "Transport",		"attr": [ "transport" ] }
+					]
 				}
 			]
 		},
@@ -179,51 +221,45 @@
 				},
 				{	"name": "Funktionsträger",
 					"template": "Person.svg",
+					"symbols": [
+						{ "variantmatrix": [
+								{ "variants": [
+									{ "name": "TZ",		"label": "TZ" },
+									{ "name": "Bel",	"label": "Bel", "font_size": "250%" },
+									{ "name": "BrB",	"label": "BrB", "font_size": "250%" },
+									{ "name": "E",		"label": "E" },
+									{ "name": "I",		"label": "I" },
+									{ "name": "Öl",		"label": "Öl" },
+									{ "name": "O",		"label": "O" },
+									{ "name": "R",		"label": "R" },
+									{ "name": "Sp",		"label": "Sp" },
+									{ "name": "TW",		"label": "TW", "font_size": "250%" },
+									{ "name": "W",		"label": "W" },
+									{ "name": "WP",		"label": "WP", "font_size": "250%" }
+								] },
+								{ "variants": [
+									{ "filename": "GrFü", "attr": [ "group" ] },
+									{ "filename": "TrFü", "attr": [ "troop" ] },
+									{ "filename": "FaHe" }
+								] }
+							]
+						},
+						{ "filename": "Blanko" },
+						{ "filename": "FaHe",	"label": "FaHe", "font_size": "200%" },
+						{ "filename": "KF",		"label": "KF" }
+					],
 					"subsets": [
 						{	"name": "TZ",
+							"label": "TZ",
 							"symbols": [
-								{	"filename": "ZFü",
-									"label": "TZ",
-									"attr": [
-										"platoon"
-									]
-								},
-								{	"filename": "ZTrFü",
-									"label": "TZ",
-									"attr": [
-										"platoontroop"
-									]
-								},
-								{	"filename": "GrFüB1",
-									"label": "B1",
-									"attr": [
-										"group"
-									]
-								},
-								{	"filename": "GrFüB2",
-									"label": "B2",
-									"attr": [
-										"group"
-									]
-								},
-								{	"filename": "TrFüB1",
-									"label": "B1",
-									"attr": [
-										"troop"
-									]
-								},
-								{	"filename": "TrFüB2",
-									"label": "B2",
-									"attr": [
-										"troop"
-									]
-								},
-								{	"filename": "FaHeB1",
-									"label": "B1"
-								},
-								{	"filename": "FaHeB2",
-									"label": "B2"
-								}
+								{	"filename": "ZFü",						"attr": [ "platoon" ] },
+								{	"filename": "ZTrFü",					"attr": [ "platoontroop" ] },
+								{	"filename": "GrFü_B1",	"label": "B 1",	"attr": [ "group" ] },
+								{	"filename": "GrFü_B2",	"label": "B 2",	"attr": [ "group" ] },
+								{	"filename": "TrFü_B1",	"label": "B 1",	"attr": [ "troop" ] },
+								{	"filename": "TrFü_B2",	"label": "B 2",	"attr": [ "troop" ] },
+								{	"filename": "FaHe_B1",	"label": "B 1" },
+								{	"filename": "FaHe_B2",	"label": "B 2" }
 							]
 						},
 						{	"name": "Stab",
@@ -237,12 +273,6 @@
 								}
 							]
 						}
-					],
-					"symbols": [
-						{ "filename": "Blanko" },
-						{ "filename": "FaHe",	"label": "FaHe",
-							"font_size": "200%" },
-						{ "filename": "KF",		"label": "KF" }
 					]
 				},
 				{	"name": "Fahrzeuge",
@@ -392,57 +422,6 @@
 					"template": "Einrichtung.svg",
 					"symbols": [
 						{	"filename": "Gerätehaus", "label": "FW" }
-					]
-				}
-			]
-		},
-		{	"name": "Gefahren",
-			"color_primary": "#FF0000",
-			"template": "Gefahr.svg",
-			"symbols": [
-				{	"filename": "Gefahr",
-					"variantmatrix": [
-						{ "variants": [
-								{ "name": "" },
-								{ "name": "Akut",		"denominator": "!"},
-								{ "name": "Vermutet",	"denominator": "?"}
-							]
-						},
-						{ "variants": [
-								{ "name": "" },
-								{ "name": "Explosion",		"attr": [ "explosion" ] },
-								{ "name": "Öl", 			"attr": [ "oil" ] },
-								{ "name": "Radioaktivität",	"attr": [ "radioactivity" ] },
-								{ "name": "Elektrizität", 	"attr": [ "electricity" ] },
-								{ "name": "Explosives", 	"attr": [ "explosives" ] },
-								{ "name": "Stoffe", 		"attr": [ "hazardous_materials" ] },
-								{ "name": "Luftmangel",		"attr": [ "suffocation" ] },
-								{ "name": "Gas", 			"attr": [ "gas" ] },
-								{ "name": "Wassereinbruch",	"attr": [ "water_ingress" ], "color_primary": "#003399" }
-							]
-						}
-					]
-				}
-			]
-		},
-		{	"name": "Maßnahmen",
-			"color_primary": "#000000",
-			"template": "Maßnahme.svg",
-			"symbols": [
-				{	"filename": "Maßnahme",
-					"variantmatrix": [
-						{ "variants": [
-								{ "name": "" },
-								{ "name": "Betreuung",			"attr": [ "care" ] },
-								{ "name": "Erkunden",			"attr": [ "survey" ] },
-								{ "name": "Beobachten",			"attr": [ "survey" ] },
-								{ "name": "Brückenbau",			"attr": [ "bridge" ] },
-								{ "name": "Dekontaminieren",	"attr": [ "decon" ] },
-								{ "name": "Räumen",				"attr": [ "clear" ] },
-								{ "name": "Sprengen",			"attr": [ "blast" ] },
-								{ "name": "Transport",			"attr": [ "transport" ] }
-							]
-						}
 					]
 				}
 			]
