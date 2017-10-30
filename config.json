@@ -125,13 +125,16 @@
 			"subsets": [
 				{	"name": "Einheiten",
 					"template": "Einheit.svg",
+					"symbols": [
+						{ "filename": "_Blanko" }
+					],
 					"subsets": [
 						{	"name": "Züge",
 							"attr": [
 								"platoon"
 							],
 							"symbols": [
-								{	"filename": "Blanko" },
+								{	"filename": "_Blanko" },
 								{	"filename": "TZ", "label": "TZ" },
 								{	"filename": "TZ_", "label": "TZ-" },
 								{	"filename": "TZ_Bel", "label": "TZ-Bel" },
@@ -150,7 +153,7 @@
 								"group"
 							],
 							"symbols": [
-								{	"filename": "Blanko" },
+								{	"filename": "_Blanko" },
 								{	"filename": "B1",		"label": "B 1" },
 								{	"filename": "B2",		"label": "B 2" },
 								{	"filename": "FGr_Bel",	"label": "Bel" },
@@ -199,7 +202,7 @@
 								"troop"
 							],
 							"symbols": [
-								{	"filename": "Blanko" },
+								{	"filename": "_Blanko" },
 								{	"filename": "TZ",	"label": "TZ",
 									"attr": [ "platoontroop" ] },
 								{	"filename": "Log",	"label": "Log",
@@ -220,7 +223,7 @@
 				{	"name": "Funktionsträger",
 					"template": "Person.svg",
 					"symbols": [
-						{ "filename": "Blanko" },
+						{ "filename": "_Blanko" },
 						{ "filename": "FaHe",	"label": "FaHe", "font_size": "200%" },
 						{ "filename": "KF",		"label": "KF" }
 					],
@@ -288,7 +291,7 @@
 						{	"name": "Wasserfahrzeuge",
 							"template": "Wasserfahrzeug.svg",
 							"symbols": [
-								{	"filename": "Blanko"},
+								{	"filename": "_Blanko"},
 								{	"filename": "MzB",		"label": "MzB"},
 								{	"filename": "MzAB",		"label": "MzAB"},
 								{	"filename": "MZPt",		"label": "MZPt"},
@@ -359,9 +362,9 @@
 						}
 					],
 					"symbols": [
-						{	"filename": "Blanko",							"attr": [ "roadonly" ] },
-						{	"filename": "Blanko_gl",						"attr": [ "offroad" ] },
-						{	"filename": "Blanko_kt",						"attr": [ "tracks" ] },
+						{	"filename": "_Blanko",							"attr": [ "roadonly" ] },
+						{	"filename": "_Blanko_gl",						"attr": [ "offroad" ] },
+						{	"filename": "_Blanko_kt",						"attr": [ "tracks" ] },
 						{	"filename": "GKW_I",		"label": "GKW I",	"attr": [ "offroad" ] },
 						{	"filename": "GKW_II",		"label": "GKW II",	"attr": [ "offroad" ] }
 					]
@@ -418,10 +421,45 @@
 						}
 					]
 				},
+				{	"name": "Fahrzeuge",
+					"template": "Fahrzeug.svg",
+					"attr": [ "roadonly" ],
+					"symbols": [
+						{ "filename": "ELW_1",	"label": "ELW 1" },
+						{ "filename": "LF",						"attr": [ "extinguish" ] },
+						{ "filename": "HLF",	"label": "HLF",	"attr": [ "extinguish" ] },
+						{ "filename": "DLK",					"attr": [ "aerial_ladder" ] }
+					]
+				},
 				{	"name": "Einrichtungen",
 					"template": "Einrichtung.svg",
 					"symbols": [
 						{	"filename": "Gerätehaus", "label": "FW" }
+					]
+				}
+			]
+		},
+		{	"name": "Polizei",
+			"color_primary": "#13A538",
+			"stroke_color": "#000000",
+			"subsetvariants": [
+				{ "name": "Dunkel", "color_secondary": "#000000", "color_text": "#000000" },
+				{ "name": "Hell", "color_secondary": "#FFFFFF", "color_text": "#FFFFFF" }
+			],
+			"subsets": [
+				{	"name": "",
+					"subsetvariants": [
+						{ "name": "Pol", "organization": "Pol" },
+						{ "name": "BPol", "organization": "BPol" },
+						{ "name": "Zoll", "organization": "Zoll" }
+					],
+					"subsets": [
+						{	"name": "Einheiten",
+							"template": "Einheit.svg",
+							"symbols": [
+								{ "filename": "_Blanko" }
+							]
+						}
 					]
 				}
 			]
