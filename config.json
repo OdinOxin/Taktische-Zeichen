@@ -113,6 +113,36 @@
 						{ 	"filename": "Sprengen",			"attr": [ "blast" ] },
 						{ 	"filename": "Transport",		"attr": [ "transport" ] }
 					]
+				},
+				{	"name": "Schäden",
+					"subsets": [
+						{	"name": "Beschädigung",
+							"template": "Beschädigung.svg",
+							"symbols": [
+								{ "filename": "Angeschlagen",	"attr": [ "grade_1" ] },
+								{ "filename": "Teilzerstört",	"attr": [ "grade_2" ] },
+								{ "filename": "Zerstört",		"attr": [ "grade_3" ] }
+							]
+						},
+						{	"name": "Blockaden",
+							"template": "Blockade.svg",
+							"symbols": [
+								{ "filename": "Teilblockiert",	"attr": [ "grade_1" ] },
+								{ "filename": "Vollblockiert",	"attr": [ "grade_2" ] }
+							]
+						},
+						{	"name": "Räume",
+							"template": "Raum.svg",
+							"symbols": [
+								{ "filename": "Ausgefüllt",		"attr": [ "filled" ] },
+								{ "filename": "Schichtung",		"attr": [ "stacked" ] },
+								{ "filename": "Wasser",			"attr": [ "water" ] },
+								{ "filename": "Angeschlagen",	"attr": [ "chipped" ] },
+								{ "filename": "Schwalbennest",	"attr": [ "nest" ] },
+								{ "filename": "Halb",			"attr": [ "half" ] }
+							]
+						}
+					]
 				}
 			]
 		},
@@ -387,7 +417,7 @@
 			"stroke_color": "#000000",
 			"color_text": "#FFFFFF",
 			"subsetvariants": [
-				{ "name": ""},
+				{ "name": "_Blanko" },
 				{ "name": "FW", "organization": "FW" },
 				{ "name": "BF", "organization": "BF" },
 				{ "name": "FF", "organization": "FF" },
@@ -449,6 +479,7 @@
 			"subsets": [
 				{	"name": "",
 					"subsetvariants": [
+						{ "name": "_Blanko" },
 						{ "name": "Pol", "organization": "Pol" },
 						{ "name": "BPol", "organization": "BPol" },
 						{ "name": "Zoll", "organization": "Zoll" }

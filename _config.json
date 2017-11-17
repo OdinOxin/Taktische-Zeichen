@@ -571,35 +571,6 @@
 		{	"name": "Schäden",
 			"symbols": [
 				{
-					"name": "Beschädigung",
-					"template": "Beschädigung.svg",
-					"variants": {
-						"zerstört": "Zerstört",
-						"teilzerstört": "Teilzerstört",
-						"angeschlagen": "Angeschlagen"
-					}
-				},
-				{
-					"name": "Blockade",
-					"template": "Blockade.svg",
-					"variants": {
-						"teilblockiert": "Teilblockiert",
-						"blockiert": "Blockiert"
-					}
-				},
-				{
-					"name": "Raum",
-					"template": "Raum.svg",
-					"variants": {
-						"ausgefüllt": "Ausgefüllter Raum",
-						"schichtung": "Ausgefüllter Raum - Schichtung",
-						"wasser": "Ausgefüllter Raum - Wasser",
-						"angeschlagen": "Angeschlagener Raum",
-						"schwalbennest": "Angeschlagener Raum - Schwalbennest",
-						"halb": "Angeschlagener Raum - Halber Raum"
-					}
-				},
-				{
 					"name": "Schichtung",
 					"template": "Schichtung.svg",
 					"variants": {
