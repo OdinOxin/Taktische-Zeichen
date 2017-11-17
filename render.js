@@ -210,7 +210,8 @@ function copySetAttributes(dest, src, withSubsets, withSubsetvariants, withSymbo
 			continue;
 		if(key === "attr" && dest[key] !== undefined) {
 			for(var item in src[key])
-				dest[key].push(src[key][item]); // Sum attributes
+				if(dest[key].indexOf(src[key][item]) == -1) // If not already contained in attr array...
+					dest[key].push(src[key][item]); // ... sum to attributes
 			continue;
 		}
 		if(dest[key] === undefined) // If not already specialized in child...
@@ -283,7 +284,7 @@ function createSymbol(template, symbol) {
 		return;
 	}
 	var finalPath = path.join(symbol.path, symbol.filename + ".svg");
-	println("  \t\x1b[36m" + symbol.filename + ".svg\x1b[0m\x1b[2m;   \tAttributes: [\x1b[0m " + symbol.attr + " \x1b[2m]; " + finalPath + "\x1b[0m …");
+	println("  \t\x1b[36m" + symbol.filename + ".svg\x1b[0m\x1b[2m  \tAttributes: [\x1b[0m " + symbol.attr + " \x1b[2m]; " + finalPath + "\x1b[0m …");
 	var compiled_symbol = template(symbol);
 	compiled_symbol = compiled_symbol.replace(/^\s*[\r\n]/gm, "");
 	fs.writeFileSync(finalPath, compiled_symbol);
