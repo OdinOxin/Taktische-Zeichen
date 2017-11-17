@@ -11,40 +11,32 @@
 		</style>
 	</defs>
 
-	{{#if level_1}}
+	{{#attrCond "grade_1" "||" "grade_2"}}
 	<rect x="64" y="64" width="128" height="128" stroke-width="5" stroke="{{ stroke_color }}" fill="{{ color_primary }}" />
+	{{/attrCond}}
+	
+	{{#attrCond "grade_3" "||" "grade_4"}}
+	<rect x="64" y="64" width="128" height="128" stroke-width="5" stroke="{{ stroke_color }}" fill="{{ color_secondary }}" />
+	{{/attrCond}}
+	
+	{{#attr "grade_1"}}
 	<rect x="128" y="64" width="64" height="64" stroke-width="5" stroke="{{ stroke_color }}" fill="{{ color_secondary }}" />
-	{{/if}}
+	{{/attr}}
 
-	{{#if level_2}}
-	<rect x="64" y="64" width="128" height="128" stroke-width="5" stroke="{{ stroke_color }}" fill="{{ color_primary }}" />
+	{{#attr "grade_2"}}
 	<rect x="128" y="64" width="64" height="128" stroke-width="5" stroke="{{ stroke_color }}" fill="{{ color_secondary }}" />
-	{{/if}}
+	{{/attr}}
 
-	{{#if level_3}}
-	<rect x="64" y="64" width="128" height="128" stroke-width="5" stroke="{{ stroke_color }}" fill="{{ color_secondary }}" />
+	{{#attr "grade_3"}}
 	<rect x="64" y="64" width="64" height="64" stroke-width="5" stroke="{{ stroke_color }}" fill="{{ color_primary }}" />
-	{{/if}}
-
-	{{#if level_4}}
-	<rect x="64" y="64" width="128" height="128" stroke-width="5" stroke="{{ stroke_color }}" fill="{{ color_secondary }}" />
-	{{/if}}
+	{{/attr}}
 
 	<ellipse cx="128" cy="128" rx="32" ry="32" stroke-width="3" stroke="{{ stroke_color }}" fill="#FFFFFF" />
 
-	{{#if level_1}}
-	<text font-family="Roboto Slab Bold" font-size="300%" dominant-baseline="central" text-anchor="middle" x="128" y="128">1</text>
-	{{/if}}
-
-	{{#if level_2}}
-	<text font-family="Roboto Slab Bold" font-size="300%" dominant-baseline="central" text-anchor="middle" x="128" y="128">2</text>
-	{{/if}}
-
-	{{#if level_3}}
-	<text font-family="Roboto Slab Bold" font-size="300%" dominant-baseline="central" text-anchor="middle" x="128" y="128">3</text>
-	{{/if}}
-
-	{{#if level_4}}
-	<text font-family="Roboto Slab Bold" font-size="300%" dominant-baseline="central" text-anchor="middle" x="128" y="128">4</text>
-	{{/if}}
+	<text font-family="Roboto Slab Bold" font-size="300%" dominant-baseline="central" text-anchor="middle" x="128" y="128">
+	{{#attr "grade_1"}}1{{/attr}}
+	{{#attr "grade_2"}}2{{/attr}}
+	{{#attr "grade_3"}}3{{/attr}}
+	{{#attr "grade_4"}}4{{/attr}}
+	</text>
 </svg>

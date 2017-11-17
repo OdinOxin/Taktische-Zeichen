@@ -6,9 +6,9 @@
 			"stroke_color": "#000000",
 			"color_text": "#000000",
 			"symbols": [
-				{	"filename": "Ortsfest", "template": "Ortsfest.svg" },
-				{	"filename": "Einrichtung", "template": "Einrichtung.svg" },
-				{	"filename": "ÜberschwemmtesGebiet",	"template": "Überschwemmtes Gebiet.svg" }
+				{	"filename": "Ortsfest",		"template": "Ortsfest.svg" },
+				{	"filename": "Einrichtung",	"template": "Einrichtung.svg" },
+				{	"filename": "Ereignis",		"template": "Ereignis.svg" }
 			],
 			"subsets": [
 				{	"name": "Personen",
@@ -149,6 +149,40 @@
 						{	"filename": "Schichtung",	"template": "Schichtung.svg",	"attr": [ "stratification" ] },
 						{	"filename": "Rutschfläche",	"template": "Schichtung.svg",	"attr": [ "sliding_surface" ] }
 					]
+				},
+				{	"name": "Gebiete",
+					"symbols": [
+						{	"filename": "ÜberschwemmtesGebiet",	"template": "Überschwemmtes Gebiet.svg" }
+					]
+				},
+				{	"name": "Bewegungen",
+					"template": "Bewegung.svg",
+					"symbols": [
+						{	"filename": "Bewegung" },
+						{	"filename": "Ausgangspunkt",	"attr": [ "origin" ] },
+						{	"filename": "Endpunkt",			"attr": [ "endpoint" ] },
+						{	"filename": "Sammeln",			"attr": [ "assemble" ] },
+						{	"filename": "ZweiRichtungen",	"attr": [ "bidirectional" ] }
+					]
+				},
+				{	"name": "Tendezen",
+					"template": "Tendenz.svg",
+					"symbols": [
+						{	"filename": "Fallend",		"attr": [ "decreasing" ] },
+						{	"filename": "Unverändert",	"attr": [ "unchanged" ] },
+						{	"filename": "Steigend",		"attr": [ "increasing" ] }
+					]
+				},
+				{	"name": "Aktivitäten",
+					"template": "Aktivität.svg",
+					"color_primary": "#13A538",
+					"color_secondary": "#E30613",
+					"symbols": [
+						{	"filename": "Gering",	"attr": [ "grade_1" ] },
+						{	"filename": "Moderat",	"attr": [ "grade_2" ] },
+						{	"filename": "Deutlich",	"attr": [ "grade_3" ] },
+						{	"filename": "Hoch",		"attr": [ "grade_4" ] }
+					]
 				}
 			]
 		},
@@ -158,6 +192,10 @@
 			"stroke_color": "#000000",
 			"color_text": "#FFFFFF",
 			"organization": "THW",
+			"subsetvariants": [
+				{ "name": "Dunkel", "color_secondary": "#000000", "color_text": "#000000" },
+				{ "name": "Hell", "color_secondary": "#FFFFFF", "color_text": "#FFFFFF" }
+			],
 			"subsets": [
 				{	"name": "Einheiten",
 					"template": "Einheit.svg",
@@ -417,60 +455,68 @@
 				}
 			]
 		},
-		{	"name": "FW",
+		{	"name": "Feuerwehr",
 			"color_primary": "#F70000",
 			"color_secondary": "#FFFFFF",
 			"stroke_color": "#000000",
 			"color_text": "#FFFFFF",
 			"subsetvariants": [
-				{ "name": "_Blanko" },
-				{ "name": "FW", "organization": "FW" },
-				{ "name": "BF", "organization": "BF" },
-				{ "name": "FF", "organization": "FF" },
-				{ "name": "WF", "organization": "WF" }
+				{ "name": "Dunkel", "color_secondary": "#000000", "color_text": "#000000" },
+				{ "name": "Hell", "color_secondary": "#FFFFFF", "color_text": "#FFFFFF" }
 			],
 			"subsets": [
-				{	"name":	"Einheiten",
-					"template": "Einheit.svg",
-					"symbols": [
-						{	"filename": "LZ",						"attr": [ "platoon", "extinguish" ] },
-						{	"filename": "LZ_W",		"label": "W",	"attr": [ "platoon", "extinguish" ] },
-						{	"filename": "LöschGr",					"attr": [ "group", "extinguish" ] },
-						{	"filename": "ABC_Zug", 					"attr": [ "platoon", "abc" ] },
-						{	"filename": "ABC_ErkundungsGr",			"attr": [ "group", "abc", "survey" ] },
-						{	"filename": "DekonGr_Personen",			"attr": [ "group", "decon" ], "denominator": "P" },
-						{	"filename": "DekonGr_Gerät",			"attr": [ "group", "decon" ], "denominator": "G" }
-					]
-				},
-				{	"name": "Funktionsträger",
-					"template": "Person.svg",
-					"symbols": [
-						{	"filename": "LZF",
-							"attr": [
-								"platoon", "extinguish"
+				{	"name": "",
+					"subsetvariants": [
+						{ "name": "_Blanko" },
+						{ "name": "FW", "organization": "FW" },
+						{ "name": "BF", "organization": "BF" },
+						{ "name": "FF", "organization": "FF" },
+						{ "name": "WF", "organization": "WF" }
+					],
+					"subsets": [
+						{	"name":	"Einheiten",
+							"template": "Einheit.svg",
+							"symbols": [
+								{	"filename": "LZ",						"attr": [ "platoon", "extinguish" ] },
+								{	"filename": "LZ_W",		"label": "W",	"attr": [ "platoon", "extinguish" ] },
+								{	"filename": "LöschGr",					"attr": [ "group", "extinguish" ] },
+								{	"filename": "ABC_Zug", 					"attr": [ "platoon", "abc" ] },
+								{	"filename": "ABC_ErkundungsGr",			"attr": [ "group", "abc", "survey" ] },
+								{	"filename": "DekonGr_Personen",			"attr": [ "group", "decon" ], "denominator": "P" },
+								{	"filename": "DekonGr_Gerät",			"attr": [ "group", "decon" ], "denominator": "G" }
 							]
 						},
-						{	"filename": "LZFü",
-							"attr": [
-								"platoon", "extinguish"
+						{	"name": "Funktionsträger",
+							"template": "Person.svg",
+							"symbols": [
+								{	"filename": "LZF",
+									"attr": [
+										"platoon", "extinguish"
+									]
+								},
+								{	"filename": "LZFü",
+									"attr": [
+										"platoon", "extinguish"
+									]
+								}
+							]
+						},
+						{	"name": "Fahrzeuge",
+							"template": "Fahrzeug.svg",
+							"attr": [ "roadonly" ],
+							"symbols": [
+								{ "filename": "ELW_1",	"label": "ELW 1" },
+								{ "filename": "LF",						"attr": [ "extinguish" ] },
+								{ "filename": "HLF",	"label": "HLF",	"attr": [ "extinguish" ] },
+								{ "filename": "DLK",					"attr": [ "aerial_ladder" ] }
+							]
+						},
+						{	"name": "Einrichtungen",
+							"template": "Einrichtung.svg",
+							"symbols": [
+								{	"filename": "Gerätehaus", "label": "FW" }
 							]
 						}
-					]
-				},
-				{	"name": "Fahrzeuge",
-					"template": "Fahrzeug.svg",
-					"attr": [ "roadonly" ],
-					"symbols": [
-						{ "filename": "ELW_1",	"label": "ELW 1" },
-						{ "filename": "LF",						"attr": [ "extinguish" ] },
-						{ "filename": "HLF",	"label": "HLF",	"attr": [ "extinguish" ] },
-						{ "filename": "DLK",					"attr": [ "aerial_ladder" ] }
-					]
-				},
-				{	"name": "Einrichtungen",
-					"template": "Einrichtung.svg",
-					"symbols": [
-						{	"filename": "Gerätehaus", "label": "FW" }
 					]
 				}
 			]
@@ -497,6 +543,22 @@
 								{ "filename": "_Blanko" }
 							]
 						}
+					]
+				}
+			]
+		},
+		{	"name": "Bundeswehr",
+			"organization": "BW",
+			"stroke_color": "#000000",
+			"subsetvariants": [
+				{ "name": "Braun", "color_primary": "#996633", "color_secondary": "#FFFFFF", "color_text": "#FFFFFF" },
+				{ "name": "Weiss", "color_primary": "#FFFFFF", "color_secondary": "#000000", "color_text": "#000000" }
+			],
+			"subsets": [
+				{	"name": "Einheiten",
+					"template": "Einheit.svg",
+					"symbols": [
+						{	"filename": "_Blanko" }
 					]
 				}
 			]
