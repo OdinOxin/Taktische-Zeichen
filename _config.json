@@ -568,32 +568,6 @@
 				}
 			]
 		},
-		{	"name": "Schäden",
-			"symbols": [
-				{
-					"name": "Schichtung",
-					"template": "Schichtung.svg",
-					"variants": {
-						"schichtung": "Schichtung",
-						"rutschfläche": "Rutschfläche"
-					}
-				},
-				{
-					"name": "Überschwemmtes Gebiet",
-					"template": "Überschwemmtes Gebiet.svg",
-					"variants": {
-						"überschwemmtes_gebiet": "Überschwemmtes Gebiet"
-					}
-				},
-				{
-					"name": "Randtrümmer",
-					"template": "Randtrümmer.svg",
-					"variants": {
-						"randtrümmer": "Randtrümmer"
-					}
-				}
-			]
-		},
 		{	"name": "Sonstiges",
 			"symbols": [
 				{

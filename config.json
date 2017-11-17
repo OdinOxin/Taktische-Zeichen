@@ -6,8 +6,9 @@
 			"stroke_color": "#000000",
 			"color_text": "#000000",
 			"symbols": [
-				{	"filename": "Ortsfest",		"template": "Ortsfest.svg" },
-				{	"filename": "Einrichtung",	"template": "Einrichtung.svg" }
+				{	"filename": "Ortsfest", "template": "Ortsfest.svg" },
+				{	"filename": "Einrichtung", "template": "Einrichtung.svg" },
+				{	"filename": "ÜberschwemmtesGebiet",	"template": "Überschwemmtes Gebiet.svg" }
 			],
 			"subsets": [
 				{	"name": "Personen",
@@ -142,6 +143,11 @@
 								{ "filename": "Halb",			"attr": [ "half" ] }
 							]
 						}
+					],
+					"symbols": [
+						{	"filename": "Randtrümmer",	"template": "Randtrümmer.svg" },
+						{	"filename": "Schichtung",	"template": "Schichtung.svg",	"attr": [ "stratification" ] },
+						{	"filename": "Rutschfläche",	"template": "Schichtung.svg",	"attr": [ "sliding_surface" ] }
 					]
 				}
 			]
