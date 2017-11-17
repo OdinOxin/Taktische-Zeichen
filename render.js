@@ -118,15 +118,19 @@ function println(msg) {
 	var indent = "";
 	for(var i = 0; i < tree.length - 1; i++)
 	{
+		if(indent !== "")
+			indent += " ";
 		if(tree[i])
-			indent += " |";
+			indent += "|";
 		else
-			indent += "  ";
+			indent += " ";
 	}
+	if(indent !== "")
+			indent += " ";
 	if(msg !== "")
-		indent += " + ";
+		indent += "+ ";
 	else
-		indent += " |";
+		indent += "|";
 	console.log(indent + msg);
 }
 
@@ -185,13 +189,15 @@ function createAllSets() {
 		return options.inverse(this);
 	});
 
+	console.log("\x1b[31mRoot\x1b[0m");
+	tree.push(false);
 	for(var i = 0; i < config.sets.length; i++) {
-		tree.push(i != config.sets.length - 1);
+		tree[tree.length - 1] = i != config.sets.length - 1;
 		var set = config.sets[i];
 		set.path = path.join(__dirname, 'symbols');
 		createSet(set);
-		tree.pop();
 	}
+	tree.pop();
 }
 
 function copySetAttributes(dest, src, withSubsets, withSubsetvariants, withSymbols) {
@@ -231,8 +237,9 @@ function createSet(set) {
 				println("");
 				println("\x1b[33m'" + set.subsetvariants[i].name + "'\x1b[0m");
 			}
+			tree.push(false);
 			for(var j = 0; j < set.subsets.length; j++) {
-				tree.push(j != set.subsets.length - 1);
+				tree[tree.length - 1] = j != set.subsets.length - 1;
 				var variant = {};
 				copySetAttributes(variant, set.subsets[j], true, true, true);
 				variant.path = path.join(set.path, set.subsetvariants[i].name);
@@ -242,8 +249,8 @@ function createSet(set) {
 				copySetAttributes(variant, set.subsetvariants[i], false, false, true);
 				copySetAttributes(variant, set, false, false, false);
 				createSet(variant);
-				tree.pop();
 			}
+			tree.pop();
 			if(set.subsetvariants.length > 1 || set.subsetvariants[0].name !== "")
 				tree.pop();
 		}
@@ -253,8 +260,9 @@ function createSet(set) {
 function createSymbols(set) {
 	if(set.symbols === undefined)
 		return;
+	tree.push(false);
 	for(var x = 0; x < set.symbols.length; x++) {
-		tree.push(x != set.symbols.length - 1);
+		tree[tree.length - 1] = x != set.symbols.length - 1;
 		var symbol = {};
 		copySetAttributes(symbol, set.symbols[x], false, false, false);
 		copySetAttributes(symbol, set, false, false, false);
@@ -265,8 +273,8 @@ function createSymbols(set) {
 		var template = fs.readFileSync(path.join(__dirname, "templates", symbol.template), { encoding: "utf8" });
 		template = Handlebars.compile(template);
 		createSymbol(template, symbol);
-		tree.pop();
 	}
+	tree.pop();
 }
 
 function createSymbol(template, symbol) {
