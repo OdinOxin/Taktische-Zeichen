@@ -127,52 +127,6 @@
 				}
 			]
 		},
-		{	"name": "Rettungswesen Fahrzeuge",
-			"color_primary": "#FFFFFF",
-			"color_secondary": "#000000",
-			"stroke_color": "#000000",
-			"color_text": "#000000",
-			"symbols": [
-				{
-					"name": "RTW",
-					"template": "Fahrzeug.svg",
-					"unit": "RTW",
-					"rettungswesen": true,
-					"variants": {
-						"two_wheels": "RTW"
-					}
-				},
-				{
-					"name": "KTW",
-					"template": "Fahrzeug.svg",
-					"unit": "KTW",
-					"rettungswesen": true,
-					"variants": {
-						"two_wheels": "KTW"
-					}
-				},
-				{
-					"name": "NEF",
-					"template": "Fahrzeug.svg",
-					"unit": "NEF",
-					"rettungswesen": true,
-					"arzt": "true",
-					"variants": {
-						"two_wheels": "Notarzteinsatzfahrzeug"
-					}
-				},
-				{
-					"name": "NAW",
-					"template": "Fahrzeug.svg",
-					"unit": "NAW",
-					"rettungswesen": true,
-					"arzt": "true",
-					"variants": {
-						"two_wheels": "Notarztwagen"
-					}
-				}
-			]
-		},
 		{	"name": "Feuerwehr Fahrzeuge",
 			"color_primary": "#FF0000",
 			"color_secondary": "#FFFFFF",
@@ -363,22 +317,6 @@
 						"truppführer": "Truppführer",
 						"gruppenführer": "Gruppenführer",
 						"zugführer": "Zugführer"
-					}
-				}
-			]
-		},
-		{	"name": "Gebäude",
-			"color_primary": "#FFFFFF",
-			"color_secondary": "#000000",
-			"stroke_color": "#000000",
-			"symbols": [
-				{
-					"name": "Gebäude",
-					"template": "Gebäude.svg",
-					"variants": {
-						"none": "Gebäude",
-						"hospital": "Krankenhaus",
-						"unterkunft": "Unterkunft"
 					}
 				}
 			]

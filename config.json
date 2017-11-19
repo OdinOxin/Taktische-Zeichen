@@ -536,14 +536,14 @@
 				{	"name": "Einheiten",
 					"template": "Einheit.svg",
 					"symbols": [
-						{	"filename": "_Blanko" },
-						{	"filename": "Einsatzeinheit",	"attr": [ "platoon", "ambulance", "care" ], "TODO": "Rename" }
+						{	"filename": "_Blanko" }
 					],
 					"subsets": [
 						{	"name": "",
 							"subsetvariants": [
 								{	"name": "Sanitätsdienst",		"attr": [ "ambulance" ] },
 								{	"name": "Betreuung",			"attr": [ "care" ] },
+								{	"name": "Einsatzeinheit",		"attr": [ "ambulance", "care" ] },
 								{	"name": "Verpflegung",			"attr": [ "care", "food" ] },
 								{	"name": "Patiententransport",	"attr": [ "ambulance", "transport" ] },
 								{	"name": "TechnikUndSicherheit",	"attr": [ "tec" ], "label": "TS" }
@@ -577,6 +577,25 @@
 								}
 							]
 						}
+					]
+				},
+				{	"name": "Einrichtungen",
+					"template": "Einrichtung.svg",
+					"symbols": [
+						{	"filename": "_Blanko" },
+						{	"filename": "Krankenhaus",	"attr": [ "hospital" ] },
+						{	"filename": "Unterkunft",	"attr": [ "quarters" ] }
+					]
+				},
+				{	"name": "Fahrzeuge",
+					"template": "Fahrzeug.svg",
+					"attr": [ "ambulance", "roadonly" ],
+					"symbols": [
+						{	"filename": "_Blanko" },
+						{	"filename": "RTW",	"label": "RTW" },
+						{	"filename": "KTW",	"label": "KTW" },
+						{	"filename": "NEF",	"label": "NEF",	"attr": [ "doctor" ] },
+						{	"filename": "NAW",	"label": "NAW",	"attr": [ "doctor" ] }
 					]
 				}
 			]
