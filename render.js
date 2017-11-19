@@ -7,8 +7,18 @@ var async = require('async');
 
 var Handlebars = require('handlebars');
 
-var action = "create-svgs"
+var action = "create-svgs";
 var config = JSON.parse(fs.readFileSync(process.argv[2]));
+
+const RST	= "\x1b[0m";
+const DIM	= "\x1b[2m";
+const RED	= "\x1b[31m";
+const GRN	= "\x1b[32m";
+const YLW	= "\x1b[33m";
+const BLE	= "\x1b[34m";
+const MGT	= "\x1b[35m";
+const CYN	= "\x1b[36m";
+const WHT	= "\x1b[37m";
 
 var tree = [];
 
@@ -134,6 +144,10 @@ function println(msg) {
 	console.log(indent + msg);
 }
 
+function makeAttrString(src) {
+	return DIM + "  \t[ " + RST + src.attr + DIM + " ]" + RST;
+}
+
 function createAllSets() {
 	if (!fs.existsSync(path.join(__dirname, "symbols"))) {
 		fs.mkdirSync(path.join(__dirname, "symbols"));
@@ -189,7 +203,7 @@ function createAllSets() {
 		return options.inverse(this);
 	});
 
-	console.log("\x1b[31mRoot\x1b[0m");
+	console.log(RED + "Root" + RST);
 	tree.push(false);
 	for(var i = 0; i < config.sets.length; i++) {
 		tree[tree.length - 1] = i != config.sets.length - 1;
@@ -208,7 +222,9 @@ function copySetAttributes(dest, src, withSubsets, withSubsetvariants, withSymbo
 			continue;
 		if(key === "symbols" && !withSymbols)
 			continue;
-		if(key === "attr" && dest[key] !== undefined) {
+		if(key === "attr") {
+			if(dest[key] === undefined)
+				dest[key] = [];
 			for(var item in src[key])
 				if(dest[key].indexOf(src[key][item]) == -1) // If not already contained in attr array...
 					dest[key].push(src[key][item]); // ... sum to attributes
@@ -221,7 +237,11 @@ function copySetAttributes(dest, src, withSubsets, withSubsetvariants, withSymbo
 
 function createSet(set) {
 	println("");
-	println("\x1b[32m'" + set.name + "'\x1b[0m");
+	println(GRN + "'" + set.name + "'" + RST + makeAttrString(set));
+	
+	if(set.attr !== undefined && set.attr.indexOf("skip") != -1) {
+		return;
+	}
 	
 	set.path = path.join(set.path, set.name);
 	if(!fs.existsSync(set.path)) {
@@ -236,7 +256,7 @@ function createSet(set) {
 			if(set.subsetvariants.length > 1 || set.subsetvariants[0].name !== "") {
 				tree.push(i != set.subsetvariants.length - 1);
 				println("");
-				println("\x1b[33m'" + set.subsetvariants[i].name + "'\x1b[0m");
+				println(YLW + "'" + set.subsetvariants[i].name + "'" + RST + makeAttrString(set.subsetvariants[i]));
 			}
 			tree.push(false);
 			for(var j = 0; j < set.subsets.length; j++) {
@@ -268,7 +288,7 @@ function createSymbols(set) {
 		copySetAttributes(symbol, set.symbols[x], false, false, false);
 		copySetAttributes(symbol, set, false, false, false);
 		if(symbol.template === undefined) {
-			println("\x1b[31mNo Template set for '\x1b[0m" + symbol.filename + "\x1b[31m'!\x1b[0m");
+			println(RED + "No Template set for '" + RST + symbol.filename + RED + "'!" + RST);
 			continue;
 		}
 		var template = fs.readFileSync(path.join(__dirname, "templates", symbol.template), { encoding: "utf8" });
@@ -284,7 +304,7 @@ function createSymbol(template, symbol) {
 		return;
 	}
 	var finalPath = path.join(symbol.path, symbol.filename + ".svg");
-	println("  \t\x1b[36m" + symbol.filename + ".svg\x1b[0m\x1b[2m  \tAttributes: [\x1b[0m " + symbol.attr + " \x1b[2m]; " + finalPath + "\x1b[0m …");
+	println("  \t" + CYN + symbol.filename + ".svg" + RST + makeAttrString(symbol) + DIM + "; " + finalPath + RST + " …");
 	var compiled_symbol = template(symbol);
 	compiled_symbol = compiled_symbol.replace(/^\s*[\r\n]/gm, "");
 	fs.writeFileSync(finalPath, compiled_symbol);
