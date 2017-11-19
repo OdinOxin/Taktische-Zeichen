@@ -145,6 +145,8 @@ function println(msg) {
 }
 
 function makeAttrString(src) {
+	if(src === undefined || src.attr === undefined)
+		return DIM + "  \t[ ]" + RST;
 	return DIM + "  \t[ " + RST + src.attr + DIM + " ]" + RST;
 }
 
