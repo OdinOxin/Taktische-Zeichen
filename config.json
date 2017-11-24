@@ -579,6 +579,45 @@
 						}
 					]
 				},
+				{	"name": "Funktionsträger",
+					"template": "Person.svg",
+					"symbols": [
+						{	"filename": "_Blanko" }
+					],
+					"subsets": [
+						{	"name": "",
+							"attr": [ "leading" ],
+							"color_primary": "#FFFF00",
+							"font_size": "200%",
+							"symbols": [
+								{	"filename": "LNA",		"label": "LNA" },
+								{	"filename": "OrgL",		"label": "OrgL" }
+							]
+						},
+						{	"name": "",
+							"subsetvariants": [
+								{	"name": "" },
+								{	"name": "Sanitätsdienst",		"attr": [ "ambulance" ] },
+								{	"name": "Betreuung",			"attr": [ "care" ] },
+								{	"name": "Einsatzeinheit",		"attr": [ "ambulance", "care" ] },
+								{	"name": "Verpflegung",			"attr": [ "food" ] },
+								{	"name": "Patiententransport",	"attr": [ "ambulance", "transport" ] },
+								{	"name": "TechnikUndSicherheit",	"attr": [ "tec" ], "label": "TS" }
+							],
+							"subsets": [
+								{	"name": "",
+									"symbols": [
+										{	"filename": "_Blanko" },
+										{	"filename": "Beauftragter",	"attr": [ "special_function" ]},
+										{	"filename": "TrFü",			"attr": [ "troop" ] },
+										{	"filename": "GrFü",			"attr": [ "group" ] },
+										{	"filename": "ZFü",			"attr": [ "platoon" ] }
+									]
+								}
+							]
+						}
+					]
+				},
 				{	"name": "Einrichtungen",
 					"template": "Einrichtung.svg",
 					"symbols": [
