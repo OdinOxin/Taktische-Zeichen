@@ -2,13 +2,8 @@ var fs = require('fs');
 var path = require('path');
 var spawn = require('child_process').spawn;
 var spawnSync = require('child_process').spawnSync;
-
 var async = require('async');
-
 var Handlebars = require('handlebars');
-
-var action = "create-svgs";
-var config = JSON.parse(fs.readFileSync(process.argv[2]));
 
 const RST	= "\x1b[0m";
 const DIM	= "\x1b[2m";
@@ -20,7 +15,19 @@ const MGT	= "\x1b[35m";
 const CYN	= "\x1b[36m";
 const WHT	= "\x1b[37m";
 
+const SVGPath = "svg";
+
+var action = "create-svgs";
+var config = JSON.parse(fs.readFileSync(process.argv[2]));
+
 var tree = [];
+var pngSizes = [];
+var generated = 0;
+
+for(var i = 0; i < process.argv.length; i++)
+{
+	console.log("> " + process.argv[i]);
+}
 
 if(process.argv.length == 4) {
 	action = process.argv[3];
@@ -31,97 +38,19 @@ switch(action) {
 		createAllSets();
 		break;
 	case "render-all":
-		renderAll();
+		pngSizes = [256, 1024];
+		createAllSets();
 		break;
 }
 
-function renderAll() {
-	if (!fs.existsSync(path.join(__dirname, "128x128"))) {
-		fs.mkdirSync(path.join(__dirname, "128x128"));
-	}
-	if (!fs.existsSync(path.join(__dirname, "256x256"))) {
-		fs.mkdirSync(path.join(__dirname, "256x256"));
-	}
-	if (!fs.existsSync(path.join(__dirname, "512x512"))) {
-		fs.mkdirSync(path.join(__dirname, "512x512"));
-	}
-	if (!fs.existsSync(path.join(__dirname, "1024x1024"))) {
-		fs.mkdirSync(path.join(__dirname, "1024x1024"));
-	}
+console.log(DIM + "Generated: " + RST + MGT + generated + RST + DIM + " symbols; " + RST + MGT + (pngSizes.length+1) + RST + DIM + " files / symbol; " + RST + MGT + ((pngSizes.length + 1) * generated) + RST + DIM + " total files." + RST);
+console.log(RED + "Wait for '" + RST + "Done." + RED + "'!" + RST);
 
-	var jobs = [];
-
-
-	for(var i = 0; i < config.sets.length; i++) {
-		var set = config.sets[i];
-		var data = set;
-
-		if(!fs.existsSync(path.join(__dirname, '1024x1024', set.name))) {
-			fs.mkdirSync(path.join(__dirname, '1024x1024', set.name));
-		}
-		if(!fs.existsSync(path.join(__dirname, '512x512', set.name))) {
-			fs.mkdirSync(path.join(__dirname, '512x512', set.name));
-		}
-		if(!fs.existsSync(path.join(__dirname, '256x256', set.name))) {
-			fs.mkdirSync(path.join(__dirname, '256x256', set.name));
-		}
-		if(!fs.existsSync(path.join(__dirname, '128x128', set.name))) {
-			fs.mkdirSync(path.join(__dirname, '128x128', set.name));
-		}
-
-		for(var x = 0; x < set.symbols.length; x++) {
-			var symbol = set.symbols[x];
-
-			for(var variant in symbol.variants) {
-
-				jobs.push({
-					svgFile: path.join(__dirname, 'symbols', set.name, symbol.variants[variant] + ".svg"),
-					pngFile: path.join(__dirname, '1024x1024', set.name, symbol.variants[variant] + ".png"),
-					png512File: path.join(__dirname, '512x512', set.name, symbol.variants[variant] + ".png"),
-					png256File: path.join(__dirname, '256x256', set.name, symbol.variants[variant] + ".png"),
-					png128File: path.join(__dirname, '128x128', set.name, symbol.variants[variant] + ".png")
-				});
-			}
-		}
-	}
-
-	async.eachLimit(jobs, 10, function(job, callback) {	
-				console.log("Rendering " + job.svgFile + " -> " + job.pngFile);
-				var render = spawn("wkhtmltoimage", ["--transparent", "--quality", "100", "--zoom", "4", "--crop-h", "1024", "--crop-w", "1024", job.svgFile, job.pngFile]);
-				render.on('close', function(code) {
-					
-					console.log("Optimizing " + job.pngFile);
-					spawnSync("optipng", [ job.pngFile ]);
-
-					async.eachSeries([
-						{ filename: job.png512File, factor: "50%" },
-						{ filename: job.png256File, factor: "25%" },
-						{ filename: job.png128File, factor: "12.5%" }
-						],
-						function(resizeJob, resizeFinished) {
-							console.log("Resizing " + job.pngFile + " by " + resizeJob.factor + " to " + resizeJob.filename);
-							var resize = spawn("magick", [ job.pngFile, "-resize", resizeJob.factor, resizeJob.filename ]);
-							resize.on('close', function() {
-								resizeFinished();
-							});
-					}, function() {
-						async.eachSeries([
-							{ filename: job.png512File },
-							{ filename: job.png256File },
-							{ filename: job.png128File }
-							],
-							function(optimizeJob, optimizeFinished) {
-								console.log("Optimizing " + optimizeJob.filename);
-								var optimize = spawn("optipng", [ optimizeJob.filename ]);
-								optimize.on('close', function() {
-									optimizeFinished();
-								});
-						}, function() {
-							callback();
-						});
-					});
-				});
-		});
+function renderImg(job) {
+	var render = spawn("wkhtmltoimage", ["--transparent", "--quality", "100", "--zoom", job.size / 256, "--crop-h", job.size, "--crop-w", job.size, job.svgFile, job.pngFile]);
+	render.on('close', function(code) {
+		spawnSync("optipng", [ job.pngFile ]);
+	});
 }
 
 function println(msg) {
@@ -150,10 +79,21 @@ function makeAttrString(src) {
 	return DIM + "  \t[ " + RST + src.attr + DIM + " ]" + RST;
 }
 
-function createAllSets() {
-	if (!fs.existsSync(path.join(__dirname, "symbols"))) {
-		fs.mkdirSync(path.join(__dirname, "symbols"));
+function mkdir(dest) {
+	var dirs = [ path.join(__dirname, SVGPath, dest) ];
+	for(var i = 0; i < pngSizes.length; i++) {
+		dirs.push(path.join(__dirname, String(pngSizes[i]), dest));
 	}
+	
+	for(var i = 0; i < dirs.length; i++) {
+		if (!fs.existsSync(dirs[i])) {
+			fs.mkdirSync(dirs[i]);
+		}
+	}
+}
+
+function createAllSets() {
+	mkdir("");
 
 	var fonts = config.fonts;
 	
@@ -210,7 +150,7 @@ function createAllSets() {
 	for(var i = 0; i < config.sets.length; i++) {
 		tree[tree.length - 1] = i != config.sets.length - 1;
 		var set = config.sets[i];
-		set.path = path.join(__dirname, 'symbols');
+		set.path = '';
 		createSet(set);
 	}
 	tree.pop();
@@ -246,9 +186,7 @@ function createSet(set) {
 	}
 	
 	set.path = path.join(set.path, set.name);
-	if(!fs.existsSync(set.path)) {
-		fs.mkdirSync(set.path);
-	}
+	mkdir(set.path);
 	
 	createSymbols(set);
 	if(set.subsets !== undefined) {
@@ -266,9 +204,7 @@ function createSet(set) {
 				var variant = {};
 				copySetAttributes(variant, set.subsets[j], true, true, true);
 				variant.path = path.join(set.path, set.subsetvariants[i].name);
-				if(!fs.existsSync(variant.path)) {
-					fs.mkdirSync(variant.path);
-				}
+				mkdir(variant.path);
 				copySetAttributes(variant, set.subsetvariants[i], false, false, true);
 				copySetAttributes(variant, set, false, false, false);
 				createSet(variant);
@@ -305,9 +241,30 @@ function createSymbol(template, symbol) {
 		println("Filename not set.");
 		return;
 	}
-	var finalPath = path.join(symbol.path, symbol.filename + ".svg");
-	println("  \t" + CYN + symbol.filename + ".svg" + RST + makeAttrString(symbol) + DIM + "; " + finalPath + RST + " …");
-	var compiled_symbol = template(symbol);
-	compiled_symbol = compiled_symbol.replace(/^\s*[\r\n]/gm, "");
-	fs.writeFileSync(finalPath, compiled_symbol);
+	var symbolPath = path.join(symbol.path, symbol.filename);
+	var svgPath = path.join("/" + SVGPath + "/", symbolPath + ".svg")
+	println("  \t" + CYN + symbol.filename + ".svg" + RST + makeAttrString(symbol) + DIM + "; ~" + svgPath + RST + " …");
+	svgPath = path.join(__dirname, svgPath);
+	
+	if(true) {
+		var compiled_symbol = template(symbol);
+		compiled_symbol = compiled_symbol.replace(/^\s*[\r\n]/gm, "");
+		fs.writeFileSync(svgPath, compiled_symbol);
+	}
+	
+	if(pngSizes.length > 0) {
+		for(var i = 0; i < pngSizes.length; i++)
+		{
+			var pngSize = pngSizes[i];
+			var pngPath = path.join("/" + pngSize + "/", symbolPath + ".png");
+			println("  \t" + CYN + symbol.filename + ".png" + RST + DIM + "; ~" + pngPath + RST + " …")
+			pngPath = path.join(__dirname, pngPath);
+			renderImg({
+				svgFile: svgPath,
+				pngFile: pngPath,
+				size: pngSize
+			});
+		}
+	}
+	generated++;
 }
