@@ -24,21 +24,14 @@ var tree = [];
 var pngSizes = [];
 var generated = 0;
 
-for(var i = 0; i < process.argv.length; i++)
-{
-	console.log("> " + process.argv[i]);
-}
-
 if(process.argv.length == 4) {
 	action = process.argv[3];
 }
 
 switch(action) {
-	case "create-svgs":
-		createAllSets();
-		break;
 	case "render-all":
 		pngSizes = [256, 1024];
+	case "create-svgs":
 		createAllSets();
 		break;
 }
@@ -253,18 +246,20 @@ function createSymbol(template, symbol) {
 	}
 	
 	if(pngSizes.length > 0) {
+		var pngJobs = [];
 		for(var i = 0; i < pngSizes.length; i++)
 		{
 			var pngSize = pngSizes[i];
 			var pngPath = path.join("/" + pngSize + "/", symbolPath + ".png");
 			println("  \t" + CYN + symbol.filename + ".png" + RST + DIM + "; ~" + pngPath + RST + " …")
 			pngPath = path.join(__dirname, pngPath);
-			renderImg({
+			pngJobs.push({
 				svgFile: svgPath,
 				pngFile: pngPath,
 				size: pngSize
 			});
 		}
+		async.each(pngJobs, renderImg);
 	}
 	generated++;
 }
